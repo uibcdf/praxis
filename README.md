@@ -48,3 +48,7 @@ Successful project execution does not automatically create validated methodology
 This repository establishes the implementation home for Praxis. APIs and storage formats are intentionally not frozen yet.
 
 The normative conceptual definition is maintained in [MOLI Platform Architecture 1.0](https://github.com/uibcdf/moli/tree/main/architecture_1.0).
+
+## Initial design
+
+See the [Initial methodological slice](devguide/INITIAL_SLICE.md) proposal and [implementation issue](https://github.com/uibcdf/praxis/issues/1).
