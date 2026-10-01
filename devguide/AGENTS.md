@@ -9,5 +9,7 @@ superseded history. Read an archived report to trace a decision, then check
 the current replacement before treating it as a rule.
 
 Follow the reporting protocol in `../MOLI_GUIDE.md` when filing or closing a
-report. Put rules specific to this directory here; put repository-wide rules
-in the root `AGENTS.md`.
+report. Keep technical facts and defect details in maintained documents,
+tests and owning issues. Put lasting working instructions specific to this
+directory here; put repository-wide working instructions in the root
+`AGENTS.md`.
