@@ -8,6 +8,12 @@ This repository remains authoritative for its own implementation, tests, local A
 
 Use `uibcdf/moli` when a change affects a shared MOLI contract, terminology, architecture boundary, or coordination policy. Report provider-specific limitations to the provider repository and cross-link consumer work.
 
+For a needed fix in another repository, use its issue when no fix is ready or
+submit a ready fix as a pull request for owner review. If urgent work is done
+by or directly with Diego or Liliana, ask them whether to use a direct push,
+pull request or issue; direct push needs explicit permission. Follow
+`MOLI_GUIDE.md#cross-component-feedback`.
+
 Do not expose confidential vertical-pilot content in public issues or documentation.
 
 Report defects and needs in their owning issues; put source behavior, edge
