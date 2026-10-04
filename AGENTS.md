@@ -14,6 +14,12 @@ by or directly with Diego or Liliana, ask them whether to use a direct push,
 pull request or issue; direct push needs explicit permission. Follow
 `MOLI_GUIDE.md#cross-component-feedback`.
 
+For authorized direct pushes, batch short local commits when practical and
+choose local checks and CI according to the changed behavior. Consider
+`[skip ci]` only where this repository permits it and deferred tests have a
+recovery route; verify a final code checkpoint before claiming completion.
+Follow `MOLI_GUIDE.md#moli-engineering-baseline` and the local CI policy.
+
 Do not expose confidential vertical-pilot content in public issues or documentation.
 
 Report defects and needs in their owning issues; put source behavior, edge
