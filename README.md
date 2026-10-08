@@ -1,5 +1,8 @@
 # Praxis
 
+[![Tests](https://github.com/uibcdf/praxis/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/uibcdf/praxis/actions/workflows/tests.yml)
+[![Coverage](https://codecov.io/gh/uibcdf/praxis/branch/main/graph/badge.svg)](https://app.codecov.io/gh/uibcdf/praxis)
+
 **Praxis is the Methodological Context / Know-how component of the MOLI Platform.**
 
 Praxis represents reusable scientific know-how independently of any single DiscoveryProject or modeling implementation.
@@ -51,10 +54,11 @@ policies, typed quantity contracts, bounded composition and human gates, method
 records, physical benchmarks/reanalysis, audit, replay preflight and Markdown/HTML
 reports. APIs and storage formats are not frozen.
 
-The current release candidate is **0.1.0**, an experimental local-methodology
-milestone. It has no public tag, package or archive yet. The
-[candidate plan](devguide/releases/0.1.0.md) defines the acceptance gates and
-known limitations; configured CI is not passing evidence.
+Version **0.1.0** identifies the first experimental local-methodology milestone.
+The [release plan](devguide/releases/0.1.0.md) defines its acceptance gates and
+known limitations. Exact-source qualification and tag status are recorded in
+[Praxis #9](https://github.com/uibcdf/praxis/issues/9); configured CI alone is not
+passing evidence. No public Conda package or archival claim is made.
 
 The [first implementation guide](devguide/FIRST_SLICE.md) explains the boundaries
 and the optional Recorda and Ackredit integrations. Bundled hydrogen-refinement
@@ -74,11 +78,17 @@ remaining shared-boundary, hydrogen-provider and publication work. A private
 noarch Conda recipe and dependency preflight are provided for qualification;
 no public installation or release is claimed.
 
-Python metadata admits 3.11–3.14. Local development uses Python 3.14. The experimental
-local package targets Linux x86_64 and macOS arm64; its same-artifact installed matrix
-and [engineering adoption](devguide/releases/engineering_reviews.md) are recorded in
+Python metadata admits 3.11–3.14. Local development uses Python 3.14. Qualified releases
+of the experimental local package support Linux x86_64 and macOS arm64; their
+same-artifact installed matrix and [engineering adoption](devguide/releases/engineering_reviews.md) are recorded in
 [Praxis #9](https://github.com/uibcdf/praxis/issues/9). Windows and Intel macOS are unclaimed.
 Praxis has no published installation route yet.
+
+Coverage measures the full installed Conda suite on Linux Python 3.14 with published
+Recorda/Ackredit providers; the optional MolSysMT example is outside this scope.
+Reports upload on main pushes, manual runs and weekly. The first accepted report
+measured `fc51272` on 2026-10-08; subsequent report identities are recorded in #9.
+The live percentage describes this test scope, not scientific validation.
 
 The package is released under the [MIT license](LICENSE).
 

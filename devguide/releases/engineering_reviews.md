@@ -52,10 +52,16 @@ unrelated artifact/package or changed source. No favorable flag, source exclusio
 or minimum percentage is introduced. MolSysMT-specific behavior remains outside
 this provider-free coverage scope.
 
-Codecov acceptance must be observed separately from workflow configuration or
-upload completion. Until a recent complete main report and live percentage are
-observable, adoption is **partial** and the badge is withheld. Record the measured
-source commit, scope, actual acceptance/upload time and cadence in #9 when adopting.
+Codecov acceptance was independently observed for main commit
+`fc5127229f76d6e2399819f67c9f7dabbdbca01d`: the
+[complete report](https://app.codecov.io/gh/uibcdf/praxis/commit/fc5127229f76d6e2399819f67c9f7dabbdbca01d)
+measured 2,450 lines, with 2,088 hits (85.22%). The unflagged upload from
+[run 37802037865](https://github.com/uibcdf/praxis/actions/runs/37802037865) was accepted
+at 2026-10-08 15:44:23 UTC; the live main SVG independently displayed a percentage.
+Decision: **adopted** for this complete installed Linux report, with main pushes,
+manual runs and weekly cadence. The README uses the dynamic repository percentage.
+This dated report does not certify a later source commit; new exact-candidate gates
+and uploads remain required. #9 retains subsequent report identities and acceptance.
 
 ## Distribution and release route
 

@@ -13,10 +13,14 @@ Remaining work has concrete owners:
   Filled Capability/Hydride/OpenMM submissions and technical review now exist under #4.
 - MOLI #28 / Praxis #1/#5/#6: agree the shared invocation/Run/ExecutionPlan and
   semantic-persistence/Recorda partial-commit boundary. Local attempts remain provisional.
-- [Praxis #9](https://github.com/uibcdf/praxis/issues/9), governance/publication review: activate the Python-package inventory, obtain
-  actual remote installed-package evidence, qualify published dependency closure,
-  choose a stable first release and authorize publication. Local/private artifacts
-  and configured CI do not establish these outcomes.
+- [Praxis #9](https://github.com/uibcdf/praxis/issues/9), engineering/release review:
+  MOLI has registered the experimental Python package, public version `0.1.0` is
+  selected, and Codecov has accepted complete installed Linux coverage. Complete
+  the current candidate's installed matrix and component review decisions, propose
+  the matching registry states, then freeze the qualified source. The separate
+  public Conda route still requires its effective credential, exact-file write,
+  independent poststate and clean channel installation before distribution claims.
+  Configured CI and an accepted older-source report do not qualify a changed candidate.
 
 Human scientific admission/validation requires actual reviewers and provider evidence;
 execution, favorable statistics and core interface fixtures never supply it automatically.

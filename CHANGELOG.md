@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.1.0 — candidate, not yet released
+## 0.1.0 — experimental local milestone
 
 First experimental local Praxis implementation:
 
@@ -14,7 +14,8 @@ First experimental local Praxis implementation:
 - Optional borrowed Recorda operation recording and Ackredit attribution sessions.
 - Filled hydrogen-refinement proposals and real public MolSysMT RMSD example.
 
-This release candidate does not promise API/storage compatibility for subsequent
+Release qualification and tag status are recorded in [Praxis #9](https://github.com/uibcdf/praxis/issues/9).
+This milestone does not promise API/storage compatibility for subsequent
 0.x releases or scientific validation. Hydrogen adapters, shared MOLI invocation,
 parallel scheduling, durable suspension/resume and rollback remain outside this milestone.
 Public distribution, supported-platform claims and archival status depend on the
