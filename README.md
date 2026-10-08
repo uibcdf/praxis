@@ -54,9 +54,9 @@ policies, typed quantity contracts, bounded composition and human gates, method
 records, physical benchmarks/reanalysis, audit, replay preflight and Markdown/HTML
 reports. APIs and storage formats are not frozen.
 
-Version **0.1.0** identifies the first experimental local-methodology milestone.
-The [release plan](devguide/releases/0.1.0.md) defines its acceptance gates and
-known limitations. Exact-source qualification and tag status are recorded in
+Version **0.1.0** is the frozen first experimental local-methodology source milestone,
+tagged at `e253fe7`. The [release record](devguide/releases/0.1.0.md) identifies its
+passing gates, qualified artifacts and known limitations. Exact-source acceptance is recorded in
 [Praxis #9](https://github.com/uibcdf/praxis/issues/9); configured CI alone is not
 passing evidence. No public Conda package or archival claim is made.
 
@@ -73,10 +73,10 @@ paired-coordinate fixture. With MolSysMT provisioned, run
 C-alpha RMSD exercise, physical metrics and reports. These do not certify methods
 or rank fitted and fixed-frame observables as interchangeable.
 
-The [implementation checkpoint](devguide/IMPLEMENTATION_CHECKPOINT.md) records
-remaining shared-boundary, hydrogen-provider and publication work. A private
-noarch Conda recipe and dependency preflight are provided for qualification;
-no public installation or release is claimed.
+The [remaining work](NEXT_STEPS.md) identifies shared-boundary, hydrogen-provider
+and publication owners. The [earlier implementation checkpoint](devguide/IMPLEMENTATION_CHECKPOINT.md)
+is historical. The qualified noarch Conda artifact is retained without upload;
+the public source tag does not provide a public package installation route.
 
 Python metadata admits 3.11–3.14. Local development uses Python 3.14. Qualified releases
 of the experimental local package support Linux x86_64 and macOS arm64; their

@@ -19,4 +19,4 @@ This milestone does not promise API/storage compatibility for subsequent
 0.x releases or scientific validation. Hydrogen adapters, shared MOLI invocation,
 parallel scheduling, durable suspension/resume and rollback remain outside this milestone.
 Public distribution, supported-platform claims and archival status depend on the
-[candidate acceptance](devguide/releases/0.1.0.md), not on this entry.
+[release acceptance record](devguide/releases/0.1.0.md), not on this entry.

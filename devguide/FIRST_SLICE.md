@@ -230,7 +230,7 @@ Provision `devtools/conda-envs/development_env.yaml`, then use
 metadata admits 3.11–3.14. `devtools/check_dependencies.py` verifies classified environment,
 candidate Conda recipe and CI constraints, with negative conformance tests.
 `devtools/moli_governance.py` checks the restored existing component governance surface.
-The noarch candidate recipe is built without upload; the 0.1.0 release plan lives in
-[the candidate record](releases/0.1.0.md). Public distribution needs its own decision.
-Configured Linux/macOS lanes require actual remote installed-artifact qualification before
-support/publication claims. See [remaining external decisions](IMPLEMENTATION_CHECKPOINT.md).
+The noarch recipe builds without upload. The [frozen 0.1.0 record](releases/0.1.0.md)
+retains the successful remote installed-artifact matrix, exact source/artifact identities
+and component engineering decisions. Public distribution remains a separate decision
+and requires public-state and clean-install evidence. See [remaining external work](../NEXT_STEPS.md).

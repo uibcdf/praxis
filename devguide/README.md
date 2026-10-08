@@ -5,8 +5,11 @@ Praxis's conceptual responsibilities within MOLI.
 
 The [first local implementation](FIRST_SLICE.md) documents the experimental Python
 API, storage, contracts, composition, real MolSysMT exercise, Recorda/Ackredit adapters,
-benchmarks/reanalysis and replay. The [implementation checkpoint](IMPLEMENTATION_CHECKPOINT.md)
-connects local acceptance evidence to remaining provider/shared/publication decisions.
+benchmarks/reanalysis and replay. The [0.1.0 release record](releases/0.1.0.md)
+connects exact-source installed acceptance to completed issue criteria and remaining
+provider/shared/publication decisions. [Next steps](../NEXT_STEPS.md) is the current
+work queue. The [implementation checkpoint](IMPLEMENTATION_CHECKPOINT.md) preserves
+the earlier, pre-release development state.
 
 The [initial programming design](pending_proposals/initial_implementation_design.md)
 is a draft for discussing the Python package, catalog, execution, extensions,

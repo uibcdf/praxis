@@ -1,9 +1,11 @@
 # Implementation checkpoint, 2026-10-08
 
 Historical checkpoint before the 0.1.0 candidate was committed and qualified.
-Current release work and engineering adoption are tracked in
-[the candidate plan](releases/0.1.0.md) and Praxis #9. The counts and unpublished
-working-tree statements below describe that earlier development state.
+Current release acceptance, issue reconciliation and engineering adoption are tracked
+in [the frozen 0.1.0 record](releases/0.1.0.md), [next steps](../NEXT_STEPS.md) and
+[Praxis #9](https://github.com/uibcdf/praxis/issues/9). The counts, pending packaging
+work and unpublished working-tree statements below describe the earlier development
+state and must not be used as the current work queue.
 
 [Praxis #1](https://github.com/uibcdf/praxis/issues/1) owns this local implementation
 checkpoint. Changes are in the working tree; no published commit, remote CI result,

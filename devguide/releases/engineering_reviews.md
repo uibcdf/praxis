@@ -3,8 +3,12 @@
 Owner: [Praxis #9](https://github.com/uibcdf/praxis/issues/9).
 Scope: the sequential local methodology package, not scientific admission or the
 pending shared MOLI execution contract. MOLI registered `python-package` through
-[PR #64](https://github.com/uibcdf/moli/pull/64); registry review states initially
-remain pending. Proposed component decisions below require exact-candidate evidence.
+[PR #64](https://github.com/uibcdf/moli/pull/64). All four component review decisions
+below are **adopted** for the frozen source
+`e253fe76db81b9cb6eaa4db4dc0b78bb60188d39`, supported by
+[complete acceptance](https://github.com/uibcdf/praxis/issues/9#issuecomment-6067816955)
+and the [release record](0.1.0.md). Their registry mirror remains pending owner
+review in [MOLI PR #66](https://github.com/uibcdf/moli/pull/66).
 
 ## Python ecosystem applicability
 
@@ -26,19 +30,20 @@ No support-library cycle or bounded applicability exception is needed.
 Development uses Python 3.14, Ruff 0.16.5, published pytest-receptor 1.2.1
 (`llm` locally, `ci` in CI) and published gh-run-receptor 1.2.0 for this review's inspection.
 GitHub conclusions and downloaded JUnit/artifacts are independently checked.
-These tools remain development dependencies. Proposed decision: **adopted** once
-the new exact-head installed suite, including adoption regressions, passes.
+These tools remain development dependencies. Decision: **adopted**. The complete
+exact-source installed suite and support-library adoption regressions passed.
 
 ## Operating systems
 
-Proposed support for the experimental local package: **Linux x86_64 and macOS
+Qualified support for the experimental local package: **Linux x86_64 and macOS
 arm64**, Python **3.11–3.14**. No Windows or Intel macOS claim. All eight lanes
 install one shared noarch artifact with published runtime and optional providers;
 macOS asserts arm64 at runtime. Each executes the full required suite, with only
 the explicit optional MolSysMT example allowed to skip when absent.
-The same matrix runs on pushes/PRs, weekly and manually. Proposed decision:
-**adopted**, conditioned on the current candidate's successful installed matrix;
-earlier exact-candidate receipts are historical after a source change.
+The same matrix runs on pushes/PRs, weekly and manually. Decision: **adopted**.
+All eight exact-source lanes passed, each with 154 tests and one optional MolSysMT
+skip; Recorda/Ackredit integrations did not skip. Earlier candidate receipts remain
+historical after a source change and do not qualify a future candidate.
 
 ## Coverage
 
@@ -52,12 +57,12 @@ unrelated artifact/package or changed source. No favorable flag, source exclusio
 or minimum percentage is introduced. MolSysMT-specific behavior remains outside
 this provider-free coverage scope.
 
-Codecov acceptance was independently observed for main commit
-`fc5127229f76d6e2399819f67c9f7dabbdbca01d`: the
-[complete report](https://app.codecov.io/gh/uibcdf/praxis/commit/fc5127229f76d6e2399819f67c9f7dabbdbca01d)
+Codecov acceptance was independently observed for the tagged main source
+`e253fe76db81b9cb6eaa4db4dc0b78bb60188d39`: the
+[complete report](https://app.codecov.io/gh/uibcdf/praxis/commit/e253fe76db81b9cb6eaa4db4dc0b78bb60188d39)
 measured 2,450 lines, with 2,088 hits (85.22%). The unflagged upload from
-[run 37802037865](https://github.com/uibcdf/praxis/actions/runs/37802037865) was accepted
-at 2026-10-08 15:44:23 UTC; the live main SVG independently displayed a percentage.
+[run 37806795166](https://github.com/uibcdf/praxis/actions/runs/37806795166) was accepted
+at 2026-10-08 16:16:48 UTC; the live main SVG independently displayed a percentage.
 Decision: **adopted** for this complete installed Linux report, with main pushes,
 manual runs and weekly cadence. The README uses the dynamic repository percentage.
 This dated report does not certify a later source commit; new exact-candidate gates
@@ -86,11 +91,13 @@ including after an uncertain write. Tests reject occupied staging coordinates,
 changed public bytes, missing platform lanes and skipped coverage.
 
 The write client is published anaconda-client 1.15.0, used only when writing;
-credentials remain CI secrets. No repository publication secret is currently listed. The hosted preflight records
-only whether an effective CI credential is available, without exposing its value.
+credentials remain CI secrets. The successful
+[hosted read-only check](https://github.com/uibcdf/praxis/actions/runs/37833466411)
+recorded effective CI credential availability without exposing its value. Presence
+does not verify write authorization.
 No package is advertised until independent public registry and clean channel-install
-evidence exist. Source installation remains the development route. Proposed adoption:
-**adopted for the reviewed pre-publication route** after its read-only hosted check;
+evidence exist. Source installation remains the development route. Decision:
+**adopted for the reviewed pre-publication route**, with its hosted check passed;
 the policy explicitly allows an incubating package with no publication claim.
 Actual upload, poststate and clean public installation remain separate release work.
 
@@ -100,8 +107,12 @@ DOI claim is included in 0.1.0; revisit archival metadata when that route is ado
 
 ## Evidence and registry synchronization
 
-Record candidate identities, artifact digests, resolved closures, authoritative
-run/JUnit conclusions, Codecov acceptance and the read-only publication result in
-#9. Keep the final source commit unchanged after qualification. Propose the decided
-review states and supported OS/architecture in a MOLI PR for its owner's review;
-do not silently modify MOLI main or report a pending merge as completed adoption.
+The [release record](0.1.0.md) and #9 retain exact source/tag identities, original
+artifact digests, resolved closures, authoritative run/JUnit conclusions, Codecov
+acceptance and read-only publication readiness. The public tag remains unchanged.
+PR #66 proposes the adopted component review states and supported OS/architecture
+for MOLI owner review. As of 2026-10-08 its governance passes; its global guide
+audit is blocked by Nextia/MOLI Agent canonical-copy drift tracked in
+[MOLI #60](https://github.com/uibcdf/moli/issues/60). Registry synchronization is
+not complete until that PR merges. Later documentation-only commits do not
+change the qualified source, rebuild its files or supply release-gate evidence.

@@ -10,6 +10,12 @@ queries still require the decisions tracked in Praxis #5–#8.
 This is a design simulation dated 2026-10-07. The filled proposals and walkthroughs
 describe expected behavior under synthetic inputs and injected findings. No Praxis
 runner, scientific provider or scientific-validation benchmark was executed.
+The interface questions below describe that historical design state. The
+[0.1.0 release record](../releases/0.1.0.md#issue-acceptance-and-remaining-work)
+now records fulfilled local criteria for #4, #7 and #8 and implemented local
+contract/request interfaces for #5/#6. Shared lifecycle ownership and the actual
+scientific providers remain pending; these eight proposed methods have not been
+executed or scientifically validated by the later local release qualification.
 The small analytic reference values below check fixture arithmetic, not numerical
 solver implementations or statistical calibration. Provisional `stress:` labels
 identify local examples; they are not admitted immutable catalog identities.

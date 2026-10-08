@@ -19,6 +19,13 @@ for registering, documenting, executing, benchmarking, auditing, and reporting
 reusable scientific methodology. The first implementation would be local, with
 interfaces that allow additional providers, methods, and storage backends.
 
+The experimental local increment is now frozen as
+[0.1.0](../releases/0.1.0.md). [FIRST_SLICE.md](../FIRST_SLICE.md) is authoritative
+for implemented behavior; the [issue acceptance record](../releases/0.1.0.md#issue-acceptance-and-remaining-work)
+identifies completed local criteria and remaining shared/scientific work. Future
+tense and open questions below preserve the broader design discussion and do not
+mean that every interface is still unimplemented.
+
 The structure separates scientific definitions, executable implementations,
 persistent operation records, and derived views. Experimental definitions can
 be inspected and documented before all provider tools exist. Execution,
@@ -791,12 +798,12 @@ input preservation, evidence scope, record/report distinctions, and evaluator
 failure have been added above. Concrete interfaces and shared decisions are
 tracked separately:
 
-| Issue | Remaining decision |
+| Issue | Current disposition after the 0.1.0 local increment |
 | --- | --- |
-| [Praxis #5](https://github.com/uibcdf/praxis/issues/5) | Executable contracts, check/evidence schemas, authority and phase/lifecycle gates. |
-| [Praxis #6](https://github.com/uibcdf/praxis/issues/6) | Capability requests, selection, multiple bindings, prepared intent, child calls and authoritative records. |
-| [Praxis #7](https://github.com/uibcdf/praxis/issues/7) | Scoped assessments, suitability statements, conflicting history and catalog status queries. |
-| [Praxis #8](https://github.com/uibcdf/praxis/issues/8) | Benchmark/evaluator records, comparison/resource conventions and derived reporting interfaces. |
+| [Praxis #5](https://github.com/uibcdf/praxis/issues/5) | Local executable contracts/checks and audit are implemented; shared lifecycle ownership remains under MOLI #28. |
+| [Praxis #6](https://github.com/uibcdf/praxis/issues/6) | Local requests, selection, bindings, prepared intent and child calls are implemented; authoritative shared records/partial commits remain under MOLI #28. |
+| [Praxis #7](https://github.com/uibcdf/praxis/issues/7) | Local scoped assessments, suitability histories and status/query acceptance criteria are fulfilled. |
+| [Praxis #8](https://github.com/uibcdf/praxis/issues/8) | Local benchmark/evaluator, resource-boundary and derived-report acceptance criteria are fulfilled. |
 
 The [four-Capability stress exercise](../stress_tests/design_stress_test.md)
 fills the proposal forms and walks through deterministic, stochastic, human and
