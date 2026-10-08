@@ -6,6 +6,7 @@ import json
 import tarfile
 import zipfile
 from pathlib import Path
+from types import SimpleNamespace
 
 import pytest
 
@@ -15,6 +16,32 @@ SPEC = importlib.util.spec_from_file_location(
 )
 archives = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(archives)
+INSTALLED_SPEC = importlib.util.spec_from_file_location(
+    "praxis_installed", ROOT / "devtools/check_installed.py"
+)
+installed = importlib.util.module_from_spec(INSTALLED_SPEC)
+INSTALLED_SPEC.loader.exec_module(installed)
+
+
+def test_conflicting_installed_versions_cannot_hide_old_metadata():
+    records = [
+        SimpleNamespace(metadata={"Name": "Praxis"}, version="0.1.0"),
+        SimpleNamespace(metadata={"Name": "praxis"}, version="0.1.0.dev0"),
+    ]
+    with pytest.raises(ValueError, match="Conflicting installed.*praxis"):
+        installed.installed_versions(records)
+
+
+@pytest.mark.parametrize("versions", [{}, {"ackredit": "0.10.1"}])
+def test_installed_optional_provider_is_required_and_must_meet_floor(versions):
+    with pytest.raises(ValueError, match="ackredit.*violates"):
+        installed.check_dependency_versions(
+            {
+                "dependencies": [],
+                "optional-dependencies": {"attribution": ["ackredit>=0.12,<0.13"]},
+            },
+            versions,
+        )
 
 
 def write_tar(path, members):

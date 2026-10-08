@@ -54,6 +54,30 @@ def check(root, wheel, sdist, conda=None):
             member = archive.extractfile(prefix + "/" + relative)
             if member is None or member.read() != (root / relative).read_bytes():
                 raise ValueError("Source archive cannot reproduce checkout: " + relative)
+        source_files = set()
+        for directory in ("tests", "examples", "devtools", "devguide", ".github"):
+            source_files.update(
+                path
+                for path in (root / directory).rglob("*")
+                if path.is_file()
+                and path.suffix in {".py", ".json", ".yaml", ".yml", ".md", ".toml"}
+            )
+        for name in (
+            "README.md",
+            "CHANGELOG.md",
+            "AGENTS.md",
+            "MOLI_GUIDE.md",
+            "NEXT_STEPS.md",
+            "MANIFEST.in",
+            "LICENSE",
+        ):
+            if (root / name).is_file():
+                source_files.add(root / name)
+        for path in sorted(source_files):
+            relative = path.relative_to(root).as_posix()
+            member = archive.extractfile(prefix + "/" + relative)
+            if member is None or member.read() != path.read_bytes():
+                raise ValueError("Source archive cannot reproduce checkout: " + relative)
         for path in files:
             member = archive.extractfile(prefix + "/" + path.relative_to(root).as_posix())
             if member is None or member.read() != path.read_bytes():

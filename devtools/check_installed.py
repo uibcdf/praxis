@@ -12,6 +12,29 @@ from pathlib import Path
 
 from packaging.requirements import Requirement
 from packaging.specifiers import SpecifierSet
+from packaging.utils import canonicalize_name
+
+
+def installed_versions(distributions):
+    versions = {}
+    for distribution in distributions:
+        name = canonicalize_name(distribution.metadata["Name"])
+        if name in versions and versions[name] != distribution.version:
+            raise ValueError("Conflicting installed distribution metadata: " + name)
+        versions[name] = distribution.version
+    return dict(sorted(versions.items()))
+
+
+def check_dependency_versions(project, versions, *, require_optional=True):
+    requirements = list(project["dependencies"])
+    if require_optional:
+        for entries in project["optional-dependencies"].values():
+            requirements.extend(entries)
+    for text in requirements:
+        required = Requirement(text)
+        version = versions.get(canonicalize_name(required.name))
+        if version is None or not required.specifier.contains(version):
+            raise ValueError(f"Installed {required.name} {version} violates {required}")
 
 
 def check(root, manifest, artifact, *, require_optional=True):
@@ -24,7 +47,8 @@ def check(root, manifest, artifact, *, require_optional=True):
         raise ValueError("Praxis resolves to the source checkout, not the installed artifact")
     if praxis.__version__ != project["version"] or manifest["version"] != project["version"]:
         raise ValueError("Installed runtime version differs")
-    if importlib.metadata.version("praxis") != project["version"]:
+    versions = installed_versions(importlib.metadata.distributions())
+    if versions.get("praxis") != project["version"]:
         raise ValueError("Installed distribution version differs")
     if not SpecifierSet(project["requires-python"]).contains(platform.python_version()):
         raise ValueError("Installed Python violates requires-python")
@@ -35,15 +59,7 @@ def check(root, manifest, artifact, *, require_optional=True):
         path = package.parent / name
         if not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest() != digest:
             raise ValueError("Installed resource differs: " + name)
-    requirements = list(project["dependencies"])
-    if require_optional:
-        for entries in project["optional-dependencies"].values():
-            requirements.extend(entries)
-    for text in requirements:
-        required = Requirement(text)
-        version = importlib.metadata.version(required.name)
-        if not required.specifier.contains(version):
-            raise ValueError(f"Installed {required.name} {version} violates {required}")
+    check_dependency_versions(project, versions, require_optional=require_optional)
     # Exercise a resource-loading path from the installed package.
     import tempfile
 
@@ -59,9 +75,7 @@ def check(root, manifest, artifact, *, require_optional=True):
         "artifact": Path(artifact).name,
         "artifact_sha256": manifest[key],
         "runtime_files": len(manifest["runtime_hashes"]),
-        "packages": dict(
-            sorted((d.metadata["Name"], d.version) for d in importlib.metadata.distributions())
-        ),
+        "packages": versions,
         "scope": "Installed identity/resources/dependency constraints; pytest results recorded separately",
     }
 
