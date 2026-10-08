@@ -74,9 +74,13 @@ remaining shared-boundary, hydrogen-provider and publication work. A private
 noarch Conda recipe and dependency preflight are provided for qualification;
 no public installation or release is claimed.
 
-Python metadata admits 3.11–3.14. Local development uses Python 3.14; Linux and
-macOS CI lanes are configured, with support qualification still pending.
+Python metadata admits 3.11–3.14. Local development uses Python 3.14. The experimental
+local package targets Linux x86_64 and macOS arm64; its same-artifact installed matrix
+and [engineering adoption](devguide/releases/engineering_reviews.md) are recorded in
+[Praxis #9](https://github.com/uibcdf/praxis/issues/9). Windows and Intel macOS are unclaimed.
 Praxis has no published installation route yet.
+
+The package is released under the [MIT license](LICENSE).
 
 First drafts of the [Capability and Protocol proposal templates](devguide/templates/README.md)
 provide a starting point for describing and reviewing experimental methodology.

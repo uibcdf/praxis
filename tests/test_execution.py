@@ -159,10 +159,20 @@ def test_postcondition_failure_is_not_an_engine_failure(workspace, inputs, confi
     assert attempt.findings[-1].outcome == "failed"
 
 
+@pytest.mark.parametrize("presentation_failure", [False, True])
 def test_checker_error_is_unresolved_and_its_private_message_is_not_stored(
-    workspace, inputs, configure_extensions
+    workspace, inputs, configure_extensions, monkeypatch, presentation_failure
 ):
+    import smonitor
+
     catalog, context = workspace
+    warnings_before = smonitor.report()["warnings_total"]
+    if presentation_failure:
+
+        def broken_transport(*args, **kwargs):
+            raise OSError("diagnostic transport unavailable")
+
+        monkeypatch.setattr(smonitor, "emit", broken_transport)
 
     def fails(*args):
         raise RuntimeError("private checker content")
@@ -176,6 +186,8 @@ def test_checker_error_is_unresolved_and_its_private_message_is_not_stored(
     assert not prepared.ready
     assert any(check.outcome == "checker_error" for check in prepared.findings)
     assert "private checker content" not in str(prepared.to_dict())
+    if not presentation_failure:
+        assert smonitor.report()["warnings_total"] > warnings_before
 
 
 def test_advisory_findings_do_not_override_required_gate(workspace, inputs):

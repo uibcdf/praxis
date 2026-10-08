@@ -1,5 +1,10 @@
 # Implementation checkpoint, 2026-10-08
 
+Historical checkpoint before the 0.1.0 candidate was committed and qualified.
+Current release work and engineering adoption are tracked in
+[the candidate plan](releases/0.1.0.md) and Praxis #9. The counts and unpublished
+working-tree statements below describe that earlier development state.
+
 [Praxis #1](https://github.com/uibcdf/praxis/issues/1) owns this local implementation
 checkpoint. Changes are in the working tree; no published commit, remote CI result,
 public package or scientific admission is implied. The
