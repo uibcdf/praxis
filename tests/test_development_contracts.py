@@ -49,6 +49,13 @@ def test_unclassified_runtime_route_is_rejected(routes):
         preflight.audit(routes)
 
 
+def test_optional_provider_below_declared_floor_is_rejected(routes):
+    path = routes / "devtools/conda-envs/test_env.yaml"
+    path.write_text(path.read_text().replace("ackredit=0.12.0", "ackredit=0.10.1"))
+    with pytest.raises(ValueError, match="optional ackredit"):
+        preflight.audit(routes)
+
+
 def test_source_candidate_below_public_floor_is_rejected():
     with pytest.raises(ValueError, match="violates"):
         preflight.check_source_candidate(

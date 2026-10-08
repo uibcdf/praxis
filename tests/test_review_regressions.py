@@ -1,5 +1,6 @@
 """Regressions for the six defects identified in the implementation review."""
 
+import os
 import subprocess
 import sys
 from contextlib import contextmanager
@@ -298,7 +299,11 @@ praxis.run_benchmark(spec, catalog=catalog, context=context,
     evaluators={spec.evaluator_ref: evaluate}, identifier="abrupt")
 """
     root = tmp_path / "child"
-    completed = subprocess.run([sys.executable, "-B", "-c", code, str(root)], check=False)
+    completed = subprocess.run(
+        [sys.executable, "-B", "-c", code, str(root)],
+        check=False,
+        env={**os.environ, "PYTHONPATH": os.pathsep.join(sys.path)},
+    )
     assert completed.returncode == 23
     partial = praxis.load_benchmark("abrupt", records=praxis.MethodRecords(root / "records"))
     assert partial.status == "incomplete" and partial.finished is None

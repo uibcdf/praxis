@@ -23,7 +23,11 @@ jobs:
       - run: python -B devtools/moli_governance.py
       - run: ruff check .
       - run: ruff format --check .
+  candidate:
+    needs: quality
+    uses: ./.github/workflows/build_and_upload_conda_packages.yaml
   tests:
+    needs: candidate
     strategy:
       fail-fast: false
       matrix:
@@ -35,16 +39,40 @@ jobs:
         shell: bash -el {0}
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: ${{ needs.candidate.outputs.artifact_name }}
+          path: candidate
       - uses: mamba-org/setup-micromamba@v2
         with:
           environment-file: devtools/conda-envs/test_env.yaml
           create-args: python=${{ matrix.python }} --strict-channel-priority
-      - run: python -m pip install --no-deps --no-build-isolation .
+      - name: Install the exact shared Conda artifact
+        run: micromamba install --yes --no-deps candidate/praxis-0.1.0-py_0.tar.bz2
       - run: python -m pip check
-      - name: Check architecture and installed package
+      - name: Check architecture and installed resources/dependencies
         env:
           EXPECTED_OS: ${{ matrix.os }}
         run: |
-          python -c "import os, platform, praxis; assert os.environ['EXPECTED_OS'] != 'macos-latest' or platform.machine() == 'arm64'; print(platform.platform(), praxis.__file__)"
+          python -c "import os, platform; assert os.environ['EXPECTED_OS'] != 'macos-latest' or platform.machine() == 'arm64'"
+          python -B devtools/check_installed.py candidate/artifacts.json candidate/praxis-0.1.0-py_0.tar.bz2 installed-conda.json
+          micromamba list --json > conda-closure.json
       - name: Test installed package with published optional providers
-        run: python -m pytest --receptor=ci -o pythonpath=examples
+        run: python -B -m pytest --receptor=ci -o pythonpath=examples --junitxml=installed-conda-tests.xml --cov=praxis --cov-report=xml:coverage.xml
+      - name: Qualify the retained wheel on routine Linux Python
+        if: matrix.os == 'ubuntu-latest' && matrix.python == '3.14'
+        run: |
+          python -m pip install --no-deps --force-reinstall candidate/praxis-0.1.0-py3-none-any.whl
+          python -B devtools/check_installed.py candidate/artifacts.json candidate/praxis-0.1.0-py3-none-any.whl installed-wheel.json
+          python -B -m pytest --receptor=ci -o pythonpath=examples --junitxml=installed-wheel-tests.xml
+      - name: Retain observed candidate and test evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: installed-${{ matrix.os }}-py${{ matrix.python }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            installed-*.json
+            installed-*-tests.xml
+            conda-closure.json
+            coverage.xml
+          if-no-files-found: warn

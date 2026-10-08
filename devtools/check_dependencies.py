@@ -93,6 +93,11 @@ def audit(root):
     project = tomllib.loads((root / "pyproject.toml").read_text())["project"]
     required = {canonicalize_name(r.name): r for r in map(Requirement, project["dependencies"])}
     required["python"] = Requirement("python" + project["requires-python"])
+    optional = {
+        canonicalize_name(r.name): r
+        for entries in project.get("optional-dependencies", {}).values()
+        for r in map(Requirement, entries)
+    }
     inventory = json.loads((root / "devtools/dependency_routes.json").read_text())
     for kind, directory, pattern in (
         ("environments", "devtools/conda-envs", "*.yaml"),
@@ -112,6 +117,15 @@ def audit(root):
                 candidate = supplied.get(name)
                 if candidate is None or not contained(candidate.specifier, requirement.specifier):
                     raise ValueError(f"{route}: {name} has {candidate}; requires {requirement}")
+            if kind == "environments":
+                for name, requirement in optional.items():
+                    candidate = supplied.get(name)
+                    if candidate is not None and not contained(
+                        candidate.specifier, requirement.specifier
+                    ):
+                        raise ValueError(
+                            f"{route}: optional {name} has {candidate}; requires {requirement}"
+                        )
             if kind == "recipes" and (
                 data["package"]["name"] != project["name"]
                 or str(data["package"]["version"]) != project["version"]

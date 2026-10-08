@@ -22,3 +22,7 @@ Human scientific admission/validation requires actual reviewers and provider evi
 execution, favorable statistics and core interface fixtures never supply it automatically.
 Future statistical methods, broader workflows, parallel backends and reference services
 are extensions of the design, not claimed features of this bounded local increment.
+
+The next milestone is the [0.1.0 candidate](devguide/releases/0.1.0.md).
+Its CI builds one unpublished Conda artifact and tests the same bytes on the full
+intended matrix, including published Recorda and Ackredit providers.

@@ -1,3 +1,4 @@
+include CHANGELOG.md
 include AGENTS.md MOLI_GUIDE.md NEXT_STEPS.md
 include .gitignore
 graft devguide

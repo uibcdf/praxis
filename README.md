@@ -51,6 +51,11 @@ policies, typed quantity contracts, bounded composition and human gates, method
 records, physical benchmarks/reanalysis, audit, replay preflight and Markdown/HTML
 reports. APIs and storage formats are not frozen.
 
+The current release candidate is **0.1.0**, an experimental local-methodology
+milestone. It has no public tag, package or archive yet. The
+[candidate plan](devguide/releases/0.1.0.md) defines the acceptance gates and
+known limitations; configured CI is not passing evidence.
+
 The [first implementation guide](devguide/FIRST_SLICE.md) explains the boundaries
 and the optional Recorda and Ackredit integrations. Bundled hydrogen-refinement
 definitions retain their pending adapters and checks; no executable hydrogen engine
@@ -66,7 +71,7 @@ or rank fitted and fixed-frame observables as interchangeable.
 
 The [implementation checkpoint](devguide/IMPLEMENTATION_CHECKPOINT.md) records
 remaining shared-boundary, hydrogen-provider and publication work. A private
-noarch Conda recipe and dependency preflight are provided for development;
+noarch Conda recipe and dependency preflight are provided for qualification;
 no public installation or release is claimed.
 
 Python metadata admits 3.11–3.14. Local development uses Python 3.14; Linux and

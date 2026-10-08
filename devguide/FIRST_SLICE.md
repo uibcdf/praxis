@@ -228,8 +228,9 @@ model/coverage decisions, scientific review and throughout proof remain pending 
 Provision `devtools/conda-envs/development_env.yaml`, then use
 `python -m pip install --no-deps --no-build-isolation --editable .`. Routine Python is 3.14;
 metadata admits 3.11–3.14. `devtools/check_dependencies.py` verifies classified environment,
-private Conda recipe and CI constraints, with negative conformance tests.
+candidate Conda recipe and CI constraints, with negative conformance tests.
 `devtools/moli_governance.py` checks the restored existing component governance surface.
-The noarch development recipe is private; no public prerelease or upload is authorized.
+The noarch candidate recipe is built without upload; the 0.1.0 release plan lives in
+[the candidate record](releases/0.1.0.md). Public distribution needs its own decision.
 Configured Linux/macOS lanes require actual remote installed-artifact qualification before
 support/publication claims. See [remaining external decisions](IMPLEMENTATION_CHECKPOINT.md).

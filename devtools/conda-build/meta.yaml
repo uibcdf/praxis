@@ -1,11 +1,12 @@
-# Private development recipe. Public prerelease publication is not authorized.
+# Candidate recipe. Qualification builds do not publish this package.
 package:
   name: praxis
-  version: 0.1.0.dev0
+  version: 0.1.0
 source:
   path: ../..
 build:
   number: 0
+  string: py_0
   noarch: python
   script: "{{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv"
 requirements:
@@ -25,6 +26,8 @@ test:
     - praxis
     - praxis.benchmarks
     - praxis.replay
+  commands:
+    - python -c "import praxis, tempfile; assert praxis.__version__ == '0.1.0'; c = praxis.Catalog(tempfile.mkdtemp()); c.load_bundled(version='2')"
 about:
   home: https://github.com/uibcdf/praxis
   license: MIT

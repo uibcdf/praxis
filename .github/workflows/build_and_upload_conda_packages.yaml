@@ -1,0 +1,60 @@
+# Historical policy filename; this qualification route deliberately has upload=false.
+# Publication of a tested file is a separate release decision, never a CI side effect.
+name: Build unpublished Conda candidate
+
+on:
+  workflow_call:
+    outputs:
+      artifact_name:
+        description: Exact unpublished wheel, source and Conda artifacts plus hashes
+        value: ${{ jobs.build.outputs.artifact_name }}
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      artifact_name: praxis-candidate-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
+    defaults:
+      run:
+        shell: bash -el {0}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: mamba-org/setup-micromamba@v2
+        with:
+          environment-file: devtools/conda-envs/build_env.yaml
+          create-args: python=3.14 --strict-channel-priority
+      - run: python -B devtools/check_dependencies.py
+      - name: Build wheel and source archive from this commit
+        run: python -m build --no-isolation --outdir dist
+      - name: Build and smoke-test the unpublished noarch artifact
+        id: conda
+        # Reviewed v2.3.0 source; no registry credentials or publication side effects.
+        uses: uibcdf/action-build-and-upload-conda-packages@87c70b1443d5f22d738ee3ddf812bdbe0152f6c2
+        with:
+          meta_yaml_dir: devtools/conda-build
+          upload: false
+          github_release: false
+          conda_build_args: --package-format tar.bz2 --override-channels -c uibcdf -c conda-forge
+      - name: Collect and inspect exact candidate files
+        env:
+          BUILT_PATHS: ${{ steps.conda.outputs.built_paths }}
+        run: |
+          python -c "import os, pathlib, shlex, shutil; paths=shlex.split(os.environ['BUILT_PATHS']); assert len(paths)==1; shutil.copy(paths[0], pathlib.Path('dist') / pathlib.Path(paths[0]).name)"
+          python -B devtools/check_artifacts.py dist/praxis-0.1.0-py3-none-any.whl dist/praxis-0.1.0.tar.gz --conda dist/praxis-0.1.0-py_0.tar.bz2 --receipt dist/artifacts.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: praxis-candidate-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: dist/
+          if-no-files-found: error
+          retention-days: 30
+      - name: Retain shared builder evidence
+        if: always() && steps.conda.outputs.evidence_path != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.conda.outputs.evidence_artifact_name }}
+          path: ${{ steps.conda.outputs.evidence_path }}
+          if-no-files-found: error

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "praxis"
-version = "0.1.0.dev0"
+version = "0.1.0"
 description = "Experimental local scientific methodology catalog and executor"
 readme = "README.md"
 requires-python = ">=3.11,<3.15"
