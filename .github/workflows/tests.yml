@@ -1,0 +1,50 @@
+name: Python tests
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: '23 8 * * 1'
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+      - run: python -m pip install ruff==0.16.5 pyyaml packaging
+      - run: python -B devtools/check_dependencies.py
+      - run: python -B devtools/moli_governance.py
+      - run: ruff check .
+      - run: ruff format --check .
+  tests:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        python: ['3.11', '3.12', '3.13', '3.14']
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: bash -el {0}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: mamba-org/setup-micromamba@v2
+        with:
+          environment-file: devtools/conda-envs/test_env.yaml
+          create-args: python=${{ matrix.python }} --strict-channel-priority
+      - run: python -m pip install --no-deps --no-build-isolation .
+      - run: python -m pip check
+      - name: Check architecture and installed package
+        env:
+          EXPECTED_OS: ${{ matrix.os }}
+        run: |
+          python -c "import os, platform, praxis; assert os.environ['EXPECTED_OS'] != 'macos-latest' or platform.machine() == 'arm64'; print(platform.platform(), praxis.__file__)"
+      - name: Test installed package with published optional providers
+        run: python -m pytest --receptor=ci -o pythonpath=examples

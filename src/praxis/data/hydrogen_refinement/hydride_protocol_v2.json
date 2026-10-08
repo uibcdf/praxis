@@ -1,0 +1,108 @@
+{
+  "capability_ref": {
+    "identifier": "molecular.environmental_hydrogen_refinement",
+    "kind": "capability",
+    "owner": "praxis",
+    "schema": "praxis.method-ref/0.1",
+    "version": "2"
+  },
+  "limitations": [
+    "No binding installed; executability and scientific benefit are unresolved"
+  ],
+  "parameters": [
+    {
+      "default": null,
+      "description": "Exact provider-owned configuration reference, including units, scoring assumptions, engine version and stopping rule",
+      "name": "provider_configuration",
+      "required": true,
+      "schema": "praxis.parameter/0.1",
+      "validator": "object"
+    }
+  ],
+  "pending": [
+    "MolSysMT public adapter, correspondence, quantities, supported movements and exact parameters remain pending",
+    "Exact versioned runtime enforcement checker and attempt-scoped evidence pending",
+    "Human scientific review and admission authority remain pending"
+  ],
+  "procedure": "Inspect supported chemistry and group-level movable selections, relax existing hydrogens in the declared environment, retrieve only authorized coordinates through a correspondence-preserving adapter, and evaluate preservation and termination. No atom addition is authorized.",
+  "provenance_requirements": [
+    "Retained input/configuration snapshots, atom correspondence and actual engine version",
+    "Provider evidence of frozen-coordinate enforcement throughout relaxation"
+  ],
+  "ref": {
+    "identifier": "molecular.hydride_terminal_orientation",
+    "kind": "protocol",
+    "owner": "praxis",
+    "schema": "praxis.method-ref/0.1",
+    "version": "2"
+  },
+  "requirements": [],
+  "schema": "praxis.protocol/0.1",
+  "scientific_basis": [
+    "Kunzmann, Anter and Hamacher (2022), Hydride; https://doi.org/10.1186/s13015-022-00215-x",
+    "https://hydride.biotite-python.org/api.html"
+  ],
+  "status": "experimental",
+  "steps": [
+    {
+      "description": "Inspect chemistry, groups, scoring properties and selection compatibility",
+      "identifier": "inspect",
+      "operation": "hydride_coverage_inspection",
+      "pending": [
+        "Verified group coverage and selection adapter pending"
+      ],
+      "provider": "molsysmt",
+      "schema": "praxis.step/0.1"
+    },
+    {
+      "description": "Relax authorized terminal-group orientations with frozen environment enforced",
+      "identifier": "relax",
+      "operation": "hydride_hydrogen_relaxation",
+      "pending": [
+        "Verified public provider operation pending"
+      ],
+      "provider": "molsysmt",
+      "schema": "praxis.step/0.1"
+    },
+    {
+      "description": "Check preservation and explicit termination",
+      "identifier": "evaluate",
+      "operation": "hydrogen_refinement_evaluation",
+      "pending": [
+        "Provider enforcement and output checkers pending"
+      ],
+      "provider": "molsysmt",
+      "schema": "praxis.step/0.1"
+    }
+  ],
+  "title": "Hydride terminal-group orientation relaxation",
+  "tradeoffs": [
+    {
+      "alternative": null,
+      "basis": "proposed",
+      "conditions": "Supported terminal groups with compatible group-level selections",
+      "kind": "favorable",
+      "schema": "praxis.tradeoff/0.1",
+      "statement": "Chemically restricted orientation exploration may be useful; evaluation pending",
+      "support": []
+    },
+    {
+      "alternative": null,
+      "basis": "proposed",
+      "conditions": "Unsupported chemistry or incompatible partial-group selection",
+      "kind": "exclusion",
+      "schema": "praxis.tradeoff/0.1",
+      "statement": "Do not silently broaden movable atoms or assume complete hydrogen/water coverage",
+      "support": []
+    },
+    {
+      "alternative": null,
+      "basis": "proposed",
+      "conditions": "Scoring properties or precision differ from the original system",
+      "kind": "disadvantage",
+      "schema": "praxis.tradeoff/0.1",
+      "statement": "Charge assumptions and float32 conversions require explicit review and preservation checks",
+      "support": []
+    }
+  ]
+}

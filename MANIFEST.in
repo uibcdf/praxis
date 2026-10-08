@@ -1,0 +1,9 @@
+include AGENTS.md MOLI_GUIDE.md NEXT_STEPS.md
+include .gitignore
+graft devguide
+graft devtools
+graft examples
+graft tests
+graft .github
+global-exclude *.py[cod]
+global-exclude __pycache__

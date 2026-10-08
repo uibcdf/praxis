@@ -1,0 +1,105 @@
+{
+  "capability_ref": {
+    "identifier": "molecular.environmental_hydrogen_refinement",
+    "kind": "capability",
+    "owner": "praxis",
+    "schema": "praxis.method-ref/0.1",
+    "version": "1"
+  },
+  "limitations": [
+    "Energies from different models must not be compared without a declared common basis",
+    "No binding installed; convergence and scientific benefit are unresolved"
+  ],
+  "parameters": [
+    {
+      "default": null,
+      "description": "Exact provider-owned configuration reference with energy model, quantities, tolerances and iteration budget",
+      "name": "provider_configuration",
+      "required": true,
+      "schema": "praxis.parameter/0.1"
+    }
+  ],
+  "pending": [
+    "Exact model, public restricted minimization adapter and enforcement evidence remain pending"
+  ],
+  "procedure": "Check declared model parameter coverage and periodic representation, prepare the model with only authorized hydrogen degrees of freedom, minimize with frozen atoms enforced throughout, and inspect original-coordinate preservation and termination. Restraining or restoring moved heavy atoms does not satisfy this contract.",
+  "provenance_requirements": [
+    "Original model, parameterization, units, environment and actual engine version",
+    "Provider evidence that frozen atoms remained fixed throughout"
+  ],
+  "ref": {
+    "identifier": "molecular.openmm_restricted_hydrogen_minimization",
+    "kind": "protocol",
+    "owner": "praxis",
+    "schema": "praxis.method-ref/0.1",
+    "version": "1"
+  },
+  "requirements": [],
+  "schema": "praxis.protocol/0.1",
+  "scientific_basis": [
+    "Restricted continuous minimization under an explicitly declared OpenMM energy model; parameterization and exact engine version must be chosen before execution"
+  ],
+  "status": "experimental",
+  "steps": [
+    {
+      "description": "Verify complete declared model and environment coverage",
+      "identifier": "parameterize",
+      "operation": "openmm_model_coverage",
+      "pending": [
+        "Exact model and parameterization adapter pending"
+      ],
+      "provider": "molsysmt",
+      "schema": "praxis.step/0.1"
+    },
+    {
+      "description": "Minimize only authorized hydrogens",
+      "identifier": "minimize",
+      "operation": "restricted_hydrogen_minimization",
+      "pending": [
+        "Frozen-coordinate enforcement must be verified"
+      ],
+      "provider": "molsysmt",
+      "schema": "praxis.step/0.1"
+    },
+    {
+      "description": "Check correspondence, preservation and convergence",
+      "identifier": "evaluate",
+      "operation": "hydrogen_refinement_evaluation",
+      "pending": [
+        "Provider checkers pending"
+      ],
+      "provider": "molsysmt",
+      "schema": "praxis.step/0.1"
+    }
+  ],
+  "title": "Restricted OpenMM hydrogen minimization",
+  "tradeoffs": [
+    {
+      "alternative": null,
+      "basis": "proposed",
+      "conditions": "Complete compatible parameter coverage and verified frozen-coordinate implementation",
+      "kind": "favorable",
+      "schema": "praxis.tradeoff/0.1",
+      "statement": "Restricted continuous relaxation may complement admissible orientation search; evaluation pending",
+      "support": []
+    },
+    {
+      "alternative": null,
+      "basis": "proposed",
+      "conditions": "Setup and convergence cost dominate a small local refinement",
+      "kind": "disadvantage",
+      "schema": "praxis.tradeoff/0.1",
+      "statement": "Model preparation may cost more than orientation-only procedures; no measurements yet",
+      "support": []
+    },
+    {
+      "alternative": null,
+      "basis": "proposed",
+      "conditions": "Missing parameters or an implementation that only restrains heavy atoms",
+      "kind": "exclusion",
+      "schema": "praxis.tradeoff/0.1",
+      "statement": "This procedure cannot claim the frozen-coordinate contract",
+      "support": []
+    }
+  ]
+}

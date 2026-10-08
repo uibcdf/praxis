@@ -1,0 +1,7 @@
+{
+  "environments": ["devtools/conda-envs/test_env.yaml", "devtools/conda-envs/development_env.yaml"],
+  "recipes": ["devtools/conda-build/meta.yaml"],
+  "workflows": [".github/workflows/tests.yml", ".github/workflows/moli-governance.yml"],
+  "sibling_sources": [],
+  "reason": "Required CI runtime comes from Conda; the private development recipe has no publication route. Real MolSysMT qualification is optional and does not replace core dependency closure. Quality/governance jobs do not install Praxis."
+}

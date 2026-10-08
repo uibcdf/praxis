@@ -1,0 +1,182 @@
+{
+  "authorized_changes": [
+    "Coordinates of explicitly authorized hydrogens only"
+  ],
+  "inputs": [
+    {
+      "meaning": "Provider-owned molecular system snapshot with explicit atom correspondence",
+      "name": "system",
+      "representation": "immutable provider reference",
+      "required": true,
+      "schema": "praxis.field/0.1",
+      "unit": null
+    },
+    {
+      "meaning": "Structures to refine",
+      "name": "structures",
+      "representation": "explicit structure-index reference",
+      "required": true,
+      "schema": "praxis.field/0.1",
+      "unit": null
+    },
+    {
+      "meaning": "Assigned protonation, tautomerism, bonding and hydrogen inventory",
+      "name": "chemical_state",
+      "representation": "provider-owned chemical-state reference",
+      "required": true,
+      "schema": "praxis.field/0.1",
+      "unit": null
+    },
+    {
+      "meaning": "Only hydrogens authorized to move",
+      "name": "movable_hydrogens",
+      "representation": "explicit atom-index reference",
+      "required": true,
+      "schema": "praxis.field/0.1",
+      "unit": null
+    },
+    {
+      "meaning": "All remaining atoms, disjoint from and complementary to movable atoms",
+      "name": "frozen_atoms",
+      "representation": "explicit atom-index reference",
+      "required": true,
+      "schema": "praxis.field/0.1",
+      "unit": null
+    },
+    {
+      "meaning": "Complete scoring environment including selected waters, ions and cofactors",
+      "name": "environment",
+      "representation": "explicit provider-owned environment reference",
+      "required": true,
+      "schema": "praxis.field/0.1",
+      "unit": null
+    },
+    {
+      "meaning": "Declared nonperiodic convention or periodic box and reconstruction",
+      "name": "periodic_convention",
+      "representation": "explicit convention reference",
+      "required": true,
+      "schema": "praxis.field/0.1",
+      "unit": null
+    }
+  ],
+  "intent": "Refine only explicitly authorized hydrogen coordinates in a declared molecular environment, preserving chemical state, atom inventory, correspondence and all frozen coordinates.",
+  "limitations": [
+    "Experimental definition; no scientific validation or universal coverage",
+    "Protonation/tautomer search, atom addition and heavy-atom movement are outside this contract",
+    "An increased hydrogen-bond count alone does not establish improvement",
+    "A no-movement result is not automatically convergence or optimality"
+  ],
+  "outputs": [
+    {
+      "meaning": "Provider-owned resulting molecular system retaining input correspondence",
+      "name": "geometry",
+      "representation": "immutable provider result reference",
+      "required": true,
+      "schema": "praxis.field/0.1",
+      "unit": null
+    },
+    {
+      "meaning": "Actual coordinate changes, possibly none",
+      "name": "modified_atoms",
+      "representation": "provider-owned modification reference",
+      "required": true,
+      "schema": "praxis.field/0.1",
+      "unit": null
+    },
+    {
+      "meaning": "Declared convergence, valid unchanged result or inconclusive termination",
+      "name": "termination",
+      "representation": "structured provider result reference",
+      "required": true,
+      "schema": "praxis.field/0.1",
+      "unit": null
+    },
+    {
+      "meaning": "Explicit bijection from original atom and structure identities to output identities",
+      "name": "correspondence",
+      "representation": "provider-owned correspondence reference",
+      "required": true,
+      "schema": "praxis.field/0.1",
+      "unit": null
+    },
+    {
+      "meaning": "Provider-owned model, units, environmental coverage, change, enforcement and termination report",
+      "name": "report",
+      "representation": "provider-owned report reference",
+      "required": true,
+      "schema": "praxis.field/0.1",
+      "unit": null
+    }
+  ],
+  "ref": {
+    "identifier": "molecular.environmental_hydrogen_refinement",
+    "kind": "capability",
+    "owner": "praxis",
+    "schema": "praxis.method-ref/0.1",
+    "version": "2"
+  },
+  "references": [
+    "https://github.com/uibcdf/praxis/issues/3",
+    "https://github.com/uibcdf/molsysmt/issues/323",
+    "devguide/proposals/hydrogen_refinement/capability.md"
+  ],
+  "requirements": [
+    {
+      "checker_ref": null,
+      "description": "Chemical state and hydrogen inventory are explicit and preserved",
+      "identifier": "chemical_state",
+      "mandatory": true,
+      "phase": "pre",
+      "schema": "praxis.requirement/0.1"
+    },
+    {
+      "checker_ref": null,
+      "description": "Movable and frozen selections are disjoint, complete and chemically supported",
+      "identifier": "selection",
+      "mandatory": true,
+      "phase": "pre",
+      "schema": "praxis.requirement/0.1"
+    },
+    {
+      "accepted_evidence": [
+        "instrumented",
+        "independent"
+      ],
+      "checker_ref": null,
+      "coverage_required": "throughout",
+      "description": "Provider evidence bound to this attempt and all declared steps that every frozen coordinate remained fixed throughout; endpoint equality or restoration is insufficient",
+      "identifier": "frozen_enforcement",
+      "mandatory": true,
+      "phase": "runtime",
+      "schema": "praxis.requirement/0.1"
+    },
+    {
+      "checker_ref": null,
+      "description": "The scoring environment and periodic convention are explicit and covered",
+      "identifier": "environment",
+      "mandatory": true,
+      "phase": "pre",
+      "schema": "praxis.requirement/0.1"
+    },
+    {
+      "checker_ref": null,
+      "description": "Chemical state, inventory, correspondence and original frozen coordinates are preserved in outputs",
+      "identifier": "preservation",
+      "mandatory": true,
+      "phase": "post",
+      "schema": "praxis.requirement/0.1"
+    },
+    {
+      "checker_ref": null,
+      "description": "The result distinguishes convergence, valid unchanged outcome and inconclusive termination",
+      "identifier": "termination",
+      "mandatory": true,
+      "phase": "post",
+      "schema": "praxis.requirement/0.1"
+    }
+  ],
+  "schema": "praxis.capability/0.1",
+  "status": "experimental",
+  "title": "Environmental hydrogen geometry refinement"
+}
