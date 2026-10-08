@@ -81,7 +81,10 @@ no public installation or release is claimed.
 Python metadata admits 3.11–3.14. Local development uses Python 3.14. Qualified releases
 of the experimental local package support Linux x86_64 and macOS arm64; their
 same-artifact installed matrix and [engineering adoption](devguide/releases/engineering_reviews.md) are recorded in
-[Praxis #9](https://github.com/uibcdf/praxis/issues/9). Windows and Intel macOS are unclaimed.
+[Praxis #9](https://github.com/uibcdf/praxis/issues/9). Windows is unclaimed.
+macOS support is currently limited to Apple Silicon (arm64).
+Intel-based macOS (x86_64) is not part of the supported platform matrix.
+Support may be reconsidered if there is demonstrated user demand.
 Praxis has no published installation route yet.
 
 Coverage measures the full installed Conda suite on Linux Python 3.14 with published
