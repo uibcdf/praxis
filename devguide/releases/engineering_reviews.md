@@ -24,7 +24,7 @@ all maintained Conda routes; exact installed versions and public channels are re
 No support-library cycle or bounded applicability exception is needed.
 
 Development uses Python 3.14, Ruff 0.16.5, published pytest-receptor 1.2.1
-(`llm` locally, `ci` in CI) and published gh-run-receptor 1.0.0 for inspection.
+(`llm` locally, `ci` in CI) and published gh-run-receptor 1.2.0 for this review's inspection.
 GitHub conclusions and downloaded JUnit/artifacts are independently checked.
 These tools remain development dependencies. Proposed decision: **adopted** once
 the new exact-head installed suite, including adoption regressions, passes.
@@ -43,7 +43,9 @@ earlier exact-candidate receipts are historical after a source change.
 ## Coverage
 
 The complete installed Conda suite is instrumented in each lane. Routine Linux
-Python 3.14 coverage is uploaded on main using OIDC after all installed lanes pass.
+Python 3.14 coverage is uploaded on main using OIDC after that complete installed
+lane passes. Other platform queues do not delay this report; all eight installed
+lanes remain mandatory for release qualification.
 The mapper verifies installed source/resource hashes before converting paths to
 `src/praxis`; it preserves every line hit and aggregate statistic. It rejects an
 unrelated artifact/package or changed source. No favorable flag, source exclusion

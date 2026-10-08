@@ -33,11 +33,14 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-latest]
         python: ['3.11', '3.12', '3.13', '3.14']
+        exclude:
+          - os: ubuntu-latest
+            python: '3.14'
     runs-on: ${{ matrix.os }}
     defaults:
       run:
         shell: bash -el {0}
-    steps:
+    steps: &installed_steps
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
         with:
@@ -76,9 +79,21 @@ jobs:
             conda-closure.json
             coverage.xml
           if-no-files-found: warn
+  routine_linux:
+    name: tests (${{ matrix.os }}, ${{ matrix.python }})
+    needs: candidate
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        python: ['3.14']
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: bash -el {0}
+    steps: *installed_steps
   coverage:
     name: Publish measured default-branch coverage
-    needs: [candidate, tests]
+    needs: [candidate, routine_linux]
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     permissions:
