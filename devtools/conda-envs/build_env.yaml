@@ -1,0 +1,18 @@
+name: praxis-build
+channels:
+  - uibcdf
+  - conda-forge
+dependencies:
+  - python>=3.11,<3.15
+  - argdigest=0.15.0
+  - depdigest=0.13.0
+  - smonitor=0.19.0
+  - pyunitwizard=0.28.1
+  - conda
+  - conda-build
+  - pip
+  - setuptools>=77
+  - wheel
+  - python-build
+  - pyyaml
+  - packaging
