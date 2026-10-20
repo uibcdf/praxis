@@ -47,6 +47,13 @@ def validate_run(run, jobs, source):
         for system in ("ubuntu-latest", "macos-latest")
         for minor in ("3.11", "3.12", "3.13", "3.14")
     )
+    # Ordinary internal pushes run the latest-cohort Linux 3.14 cell only.
+    # A release needs the complete exact-head dispatch/PR/scheduled matrix.
+    required.update(
+        f"Latest public support ({system}, {minor})"
+        for system in ("ubuntu-latest", "macos-latest")
+        for minor in ("3.11", "3.12", "3.13", "3.14")
+    )
     observed = {job["name"]: job["conclusion"] for job in jobs}
     if not required.issubset(observed) or any(value != "success" for value in observed.values()):
         raise ValueError("Exact candidate is missing a passing required job")

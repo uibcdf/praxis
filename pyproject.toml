@@ -10,7 +10,7 @@ readme = "README.md"
 requires-python = ">=3.11,<3.15"
 license = "MIT"
 license-files = ["LICENSE"]
-dependencies = ["argdigest>=0.15,<0.16", "depdigest>=0.13,<0.14", "smonitor>=0.19,<0.20", "pyunitwizard>=0.28.1,<0.29"]
+dependencies = ["argdigest>=0.15,<0.17", "depdigest>=0.13,<0.16", "smonitor>=0.19,<0.22", "pyunitwizard>=0.28.1,<0.29"]
 
 [project.optional-dependencies]
 recording = ["recorda>=0.3,<0.4"]

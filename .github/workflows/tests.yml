@@ -131,3 +131,63 @@ jobs:
             coverage-codecov.xml
             coverage-mapping.json
           if-no-files-found: error
+
+  latest_support:
+    name: Latest public support (${{ matrix.os }}, ${{ matrix.python }})
+    needs: quality
+    strategy:
+      fail-fast: false
+      matrix:
+        os: ${{ fromJSON((github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || github.event_name == 'pull_request') && '["ubuntu-latest", "macos-latest"]' || '["ubuntu-latest"]') }}
+        python: ${{ fromJSON((github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || github.event_name == 'pull_request') && '["3.11", "3.12", "3.13", "3.14"]' || '["3.14"]') }}
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: bash -el {0}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: mamba-org/setup-micromamba@v2
+        with:
+          environment-file: devtools/conda-envs/latest_support_env.yaml
+          create-args: python=${{ matrix.python }} --strict-channel-priority
+      - name: Install current consumer without replacing public providers
+        run: python -m pip install --no-deps --no-build-isolation .
+      - name: Verify latest public provider versions and installed origins
+        env:
+          EXPECTED_OS: ${{ matrix.os }}
+        run: |
+          python - <<'PYCODE'
+          import importlib, json, os, platform, sys
+          from importlib.metadata import version
+          from pathlib import Path
+          assert os.environ['EXPECTED_OS'] != 'macos-latest' or platform.machine() == 'arm64'
+          expected = {'argdigest': ('0.16.0', 'py_0', 'e82d82680d79ae3d5df9917b1662d2855ed8485128943b72ddec87a5769a467d'), 'smonitor': ('0.21.0', 'py_2', '62b6cbae37f7fa06374af87923792f00253020955d000294b1a7d37eb9d04e56'), 'depdigest': ('0.15.1', 'py_0', '2765c692de4e6aacff4197c4226ebb42ec1f0df9edb27e92f196ef1390cb1850')}
+          records = {}
+          prefix = Path(sys.prefix).resolve()
+          for name, (release, build, digest) in expected.items():
+              assert version(name) == release
+              assert Path(importlib.import_module(name).__file__).resolve().is_relative_to(prefix)
+              candidates = list((prefix / 'conda-meta').glob(f'{name}-*.json'))
+              assert len(candidates) == 1
+              record = json.loads(candidates[0].read_text())
+              assert record['fn'] == f'{name}-{release}-{build}.tar.bz2'
+              assert record['sha256'] == digest
+              assert record['url'] == f'https://conda.anaconda.org/uibcdf/noarch/{record["fn"]}'
+              records[name] = {key: record[key] for key in ('name', 'version', 'build', 'sha256', 'url')}
+          Path('latest-support-providers.json').write_text(json.dumps(records, indent=2) + '\n')
+          PYCODE
+          python -m pip check
+      - name: Test installed consumer with latest mandatory providers
+        # Optional Recorda is omitted here: its public 0.3.0 still excludes this cohort.
+        # Existing installed lanes retain old-cohort recording tests; joint editable
+        # receiving is separately recorded under Praxis #10 / MolSysSuite #82.
+        run: python -B -m pytest --receptor=ci -o pythonpath=examples --junitxml=latest-support-tests.xml
+      - name: Retain latest-provider receiving scope and results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: latest-support-${{ matrix.os }}-py${{ matrix.python }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            latest-support-providers.json
+            latest-support-tests.xml
+          if-no-files-found: error

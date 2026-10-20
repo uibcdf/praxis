@@ -59,6 +59,11 @@ def producer():
         for system in ("ubuntu-latest", "macos-latest")
         for minor in ("3.11", "3.12", "3.13", "3.14")
     ]
+    names += [
+        f"Latest public support ({system}, {minor})"
+        for system in ("ubuntu-latest", "macos-latest")
+        for minor in ("3.11", "3.12", "3.13", "3.14")
+    ]
     return run, [{"name": name, "conclusion": "success"} for name in names], source
 
 
@@ -86,3 +91,22 @@ def test_missing_installed_platform_lane_blocks_publication():
     run, jobs, source = producer()
     with pytest.raises(ValueError, match="passing required job"):
         route.validate_run(run, jobs[:-1], source)
+
+
+def test_legacy_cohort_alone_cannot_qualify_new_provider_bounds():
+    run, jobs, source = producer()
+    jobs = [job for job in jobs if not job["name"].startswith("Latest public support")]
+    with pytest.raises(ValueError, match="passing required job"):
+        route.validate_run(run, jobs, source)
+
+
+def test_routine_latest_linux_cell_cannot_replace_full_release_receiving():
+    run, jobs, source = producer()
+    jobs = [
+        job
+        for job in jobs
+        if not job["name"].startswith("Latest public support")
+        or job["name"] == "Latest public support (ubuntu-latest, 3.14)"
+    ]
+    with pytest.raises(ValueError, match="passing required job"):
+        route.validate_run(run, jobs, source)

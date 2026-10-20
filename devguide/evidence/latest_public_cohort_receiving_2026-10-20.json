@@ -1,0 +1,153 @@
+{
+  "schema": "molsyssuite.latest-public-cohort-receiving@1",
+  "observed_at": "2026-10-20",
+  "issues": [
+    "uibcdf/molsyssuite#82",
+    "uibcdf/moli#40",
+    "uibcdf/recorda#24",
+    "uibcdf/praxis#10"
+  ],
+  "python": "3.14.8",
+  "scope": "Linux joint editable consumers; exact installed public support providers; no consumer Conda release or MolSysMT scientific qualification",
+  "pip_check": "No broken requirements found.",
+  "providers": {
+    "argdigest": {
+      "name": "argdigest",
+      "version": "0.16.0",
+      "build": "py_0",
+      "sha256": "e82d82680d79ae3d5df9917b1662d2855ed8485128943b72ddec87a5769a467d",
+      "url": "https://conda.anaconda.org/uibcdf/noarch/argdigest-0.16.0-py_0.tar.bz2"
+    },
+    "smonitor": {
+      "name": "smonitor",
+      "version": "0.21.0",
+      "build": "py_2",
+      "sha256": "62b6cbae37f7fa06374af87923792f00253020955d000294b1a7d37eb9d04e56",
+      "url": "https://conda.anaconda.org/uibcdf/noarch/smonitor-0.21.0-py_2.tar.bz2"
+    },
+    "depdigest": {
+      "name": "depdigest",
+      "version": "0.15.1",
+      "build": "py_0",
+      "sha256": "2765c692de4e6aacff4197c4226ebb42ec1f0df9edb27e92f196ef1390cb1850",
+      "url": "https://conda.anaconda.org/uibcdf/noarch/depdigest-0.15.1-py_0.tar.bz2"
+    },
+    "ackredit": {
+      "name": "ackredit",
+      "version": "0.12.0",
+      "build": "py_0",
+      "sha256": "160b452c2b9de3b44bc6c6e2f4bd8c47e44b1d2779b620f63048231708a1d4aa",
+      "url": "https://conda.anaconda.org/uibcdf/noarch/ackredit-0.12.0-py_0.tar.bz2"
+    },
+    "pyunitwizard": {
+      "name": "pyunitwizard",
+      "version": "0.28.1",
+      "build": "py_0",
+      "sha256": "d4654faf93ed4181bf331f7d382379e78f02784f71f678ad19d0ac43d8062cc6",
+      "url": "https://conda.anaconda.org/uibcdf/noarch/pyunitwizard-0.28.1-py_0.tar.bz2"
+    }
+  },
+  "consumers": {
+    "recorda": {
+      "source_base": "8c133016628e4fb581d5c147fc8587526b432a0d",
+      "metadata_sha256": "7007a8976156ca548af18297615fa5b5d53eb119bd6850cc13736ed06eec98b3",
+      "runtime_files": {
+        "src/recorda/__init__.py": "b90075f7bc0246fc6b41f7f24ae9c14bfe70bc3928e1d4fce5ee8b3596d59994",
+        "src/recorda/__main__.py": "f267fdb2f75336409dd2f830a80cbe29a180b43c56f16682a019afc52a1ebd58",
+        "src/recorda/_arguments.py": "fda6f429a5ca264bc4230173d7114dd4e52f8128a4721634bdb3bb1854c0aa0f",
+        "src/recorda/_inspection_catalog.py": "53693b3238a83a19eecc3357595104d29270d8dba2f919adb05cb9029c5124fc",
+        "src/recorda/_recovery.py": "b4c4e0a4774eb7d3c37b9b44f95dd5da89a59affe74da44717b7872339b3f9cb",
+        "src/recorda/_smonitor.py": "4a2269549e84cb68393d27382bd615737f4b7cab6817820ae71c75df6929fe2a",
+        "src/recorda/capture.py": "0a806a3fa97301ad949806cb2112f18829943558dd237ceb885789f3a318bcfb",
+        "src/recorda/integrations/__init__.py": "64af9085e46c509116bfdf78fb97f4243af80b74b2a898794a5c5f5a1c432bec",
+        "src/recorda/integrations/argdigest.py": "beb444156e44ba8d08565c0a50ab7a9b37fd9b3691f65d02739601006b7507f9",
+        "src/recorda/integrations/smonitor.py": "340ce6b8629bb611bdcec418a69bf5174b14400bcf50ae73c59584330b9a8c9a",
+        "src/recorda/policy.py": "2c0d31af7df068fe6eecd4566e6bff4889918630b679585f21e2214488b918bb",
+        "src/recorda/presentation.py": "634ce056b7e14d037a7e6819bbc1dda46dad6d9cb0fb682d1094da06a3c5e14a",
+        "src/recorda/reader.py": "a23e85b851cbaf6c6806fbf5d7ab76304538ac3da95a350a508867456ac38fe5",
+        "src/recorda/references.py": "e9e48191b32358a0e53218b0425ab44e87ecc454c40e00c009f70d2cddceb60f",
+        "src/recorda/runtime.py": "12078322e8cf4a4059ff8c685777101307ea076e993d69f53241328ffaad257d"
+      },
+      "pytest": {
+        "tests": "345",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "time": "4.962"
+      },
+      "skips": []
+    },
+    "praxis": {
+      "source_base": "b415492ed37e21aaa6eda2c3d0e4833dbf57945e",
+      "metadata_sha256": "a2d5ee06b0f0d79c109b104d44a449080cbe77875fe9d2f5f37dcfb13a9ab2a8",
+      "runtime_files": {
+        "src/praxis/__init__.py": "f79fa757ecb4b1796caf4da01df6912c62198d075142972fd51d90a29d17ec50",
+        "src/praxis/_ackredit.py": "e527268140687579fe51b0a9a47cf2ec568a433ab1e34f3633c703b714ecd6ae",
+        "src/praxis/_arguments.py": "cf42e2875618f133febbd105e4e6206a3bc6c8f4d015fe5aeb57c8ce760629bc",
+        "src/praxis/_diagnostics.py": "10e53b8b99e50dae5fdf2c9a9a0b8d2ecf4dd1aeb2783d57505394c5c24b7f51",
+        "src/praxis/_field_checks.py": "0ee87a690401f10a53d47e6c61eb0645da8f13b9c5a368e3019b998f2a85e936",
+        "src/praxis/_implementation.py": "253e2564a34658986d277f9fe6e861ee6fc1623f2061e7ea2e8e17f6da9b450f",
+        "src/praxis/_quantities.py": "0b06b82b6e547d65c8aba8bbd12b97ebc56e949aadad3917971316699f679c08",
+        "src/praxis/_serialization.py": "de021b13b246b9425e9277e0f1c6ad1705049215b7df0385fba850672bcecf4a",
+        "src/praxis/_smonitor.py": "4ed20482c61cfa1c13ab60bb91b1e248b8bb13f6b2952508b2d8c8c573331937",
+        "src/praxis/applicability.py": "0d6dc483a2052cb2bdd1eb0620c48d9fd3006d1758f0a5c4cb000fec5ec4e2ae",
+        "src/praxis/audit.py": "b0b41589c3ac447c205b931cfa7902e6e5e5f0af8e64f22147ae32e00c9e9588",
+        "src/praxis/benchmarks/__init__.py": "bb56b27a2a1fe52c0b1cb0d277d3b3d5bc558b3fc7f1f55bd1bda0c8d655dbfe",
+        "src/praxis/benchmarks/definitions.py": "fba3993ff0726bd552b779dc0ae03b118a0a0f6c7f121c47a2297888cf06a606",
+        "src/praxis/benchmarks/runner.py": "9c59e6078fff18fa8c60f0ea217795e022127d4482b3edf5a36ef3275e11f324",
+        "src/praxis/catalog/__init__.py": "318fc300c75633dd6ca4bb94651fdc05f8fd6cc45dca54a0c26d134fa3b05fc8",
+        "src/praxis/catalog/catalog.py": "5576a2a8de1458220444701917b87ab66c286ccb8ec905fbf1cb61bb7719d079",
+        "src/praxis/catalog/storage.py": "d14a7ca8efa8f0993138fd4f6cf2edd0cd98320b55185cd71665b37ca23fa7bb",
+        "src/praxis/definitions/__init__.py": "fb88621c5f6ef7c18a29858ff609f750ae91d2aec5b8a79dd78f1704434b769f",
+        "src/praxis/definitions/assessments.py": "bbb4c84c5e0f817eedf228a3aa543002494349c62db3a72b3f8e6bdd50baf173",
+        "src/praxis/definitions/capability.py": "5393e25b01d676fda568fd08eed37ec6d530cd3fc888af8939a1e92631570779",
+        "src/praxis/definitions/contracts.py": "dcaa64775dee74f2fec74c947b43dfa469fa8f054b3dce00981b2812724101fb",
+        "src/praxis/definitions/protocol.py": "166918be1ef23f0da0481e9019e3a75b1970c98b0bd9d7e7f21f735fdb766c31",
+        "src/praxis/definitions/references.py": "38b607ce383afc589cf648d9e9e8508d3bd2b99cff1c81b4e5ae1f57f701918d",
+        "src/praxis/definitions/reviews.py": "b0e0782d39a28a855bf8bda6e29680a3b1d001af0d7fafeb348a94ed4f738bd2",
+        "src/praxis/definitions/steps.py": "a9ab4e7e03402c03a547be3bda7ab1720d7a0e09f80ee86a3e278015a532e4e4",
+        "src/praxis/errors.py": "0dd2f6e98135937afefe0a06958218c142ad1a557cce1bf4c506e59d559f854d",
+        "src/praxis/execution/__init__.py": "dfe6cb6a44022b1a403d8aa9148a459215cb52493543cdf94e2789e98a8d1493",
+        "src/praxis/execution/context.py": "fe9b934c6d495a04730b9376c696a954ecd8fad99fbadd70bbf9626ec7083cd3",
+        "src/praxis/execution/reports.py": "8fbeaaa1bb8f88cab1282eaee0b3bb0ffc6411df05c1b76e59a3404d52dcab00",
+        "src/praxis/execution/runner.py": "e23e514a77263effe256dc1a37fc01546639c675272c25b4778b475a594bc3cd",
+        "src/praxis/extensions.py": "3eaf2c807c75ec0ae332393c7c1b80772e9c56aed95b506cf670611b6b2d6092",
+        "src/praxis/provenance.py": "a193b55c98f0434fcf1c9d7a2389dd3780d2913ee83d3f3fdaf2a40ecb073c78",
+        "src/praxis/recording.py": "7db936d8db19859a4b6ae35243c8a24d6a88ef61cf0dcdddcfa27de3fe164275",
+        "src/praxis/replay.py": "ebe6d5ea91a8ead26c1dc24a55616ae4623bf5109e66ef7e32f50ad4265649e2",
+        "src/praxis/reporting/__init__.py": "2c9805e8d941d0dea22c1d36371cbc45f62a8068553767e84c8ca6c491373d03",
+        "src/praxis/reporting/documents.py": "57b3a575a60364084a061ee9fe59759d37fee58f28ecd29046196e27685f4226",
+        "src/praxis/reporting/renderers.py": "c5f1b034de8825b1a5eef5c41705f372422cc9af5fa729eab74a496ff5a70c44",
+        "src/praxis/selection.py": "4ba83c3b7867971c8c64bd6f33e05dd2864891ef72bbadb6e73e11d8cb7f7d14"
+      },
+      "pytest": {
+        "tests": "155",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "1",
+        "time": "85.951"
+      },
+      "skips": [
+        {
+          "test": "test_real_molsysmt_workflow_keeps_units_conventions_and_failures",
+          "reason": "could not import 'molsysmt': No module named 'molsysmt'"
+        }
+      ]
+    }
+  },
+  "provider_provenance": {
+    "recorda_checker": "devtools/verify_support_environment.py argdigest",
+    "verified_python_files": {
+      "argdigest": 39,
+      "smonitor": 40,
+      "depdigest": 17
+    },
+    "state": "verified",
+    "source_shadowing": "rejected by checker"
+  },
+  "limits": [
+    "The original public Recorda 0.3.0 metadata remains unchanged and incompatible with the latest cohort until a separately authorized new public release.",
+    "Runtime source hashes refer to the tested worktree; administrative changes and hosted exact commits are recorded separately.",
+    "Existing accepted named-workspace conflicts were not modified by disposable receiving."
+  ]
+}

@@ -2,7 +2,8 @@
   "environments": [
     "devtools/conda-envs/test_env.yaml",
     "devtools/conda-envs/development_env.yaml",
-    "devtools/conda-envs/build_env.yaml"
+    "devtools/conda-envs/build_env.yaml",
+    "devtools/conda-envs/latest_support_env.yaml"
   ],
   "recipes": [
     "devtools/conda-build/meta.yaml"
