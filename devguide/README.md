@@ -11,6 +11,11 @@ provider/shared/publication decisions. [Next steps](../NEXT_STEPS.md) is the cur
 work queue. The [implementation checkpoint](IMPLEMENTATION_CHECKPOINT.md) preserves
 the earlier, pre-release development state.
 
+For any future public GitHub Release, check that the visible title is exactly
+the `X.Y.Z` version, matching the tag and project/package version. Keep
+descriptions in the release notes; the frozen 0.1.0 source record above is not
+a claim that a GitHub Release was published.
+
 The [initial programming design](pending_proposals/initial_implementation_design.md)
 is a draft for discussing the Python package, catalog, execution, extensions,
 audit, benchmarks, reporting, and methodological documentation, including Protocol

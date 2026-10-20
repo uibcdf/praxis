@@ -20,6 +20,11 @@ choose local checks and CI according to the changed behavior. Consider
 recovery route; verify a final code checkpoint before claiming completion.
 Follow `MOLI_GUIDE.md#moli-engineering-baseline` and the local CI policy.
 
+Before creating or editing a public GitHub Release, check that its visible
+title is exactly the canonical `X.Y.Z` version and matches its tag and
+project/package version. Put descriptive text in the release notes. Follow
+`MOLI_GUIDE.md#moli-engineering-baseline`.
+
 Do not expose confidential vertical-pilot content in public issues or documentation.
 
 Report defects and needs in their owning issues; put source behavior, edge
