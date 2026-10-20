@@ -16,6 +16,12 @@ the `X.Y.Z` version, matching the tag and project/package version. Keep
 descriptions in the release notes; the frozen 0.1.0 source record above is not
 a claim that a GitHub Release was published.
 
+At task and release closeout, review temporary test environments, build trees
+and downloaded copies. Remove owned disposable resources after their last
+needed use; retain exact candidate artifacts and useful evidence with an
+owner and review trigger. Follow
+`../MOLI_GUIDE.md#temporary-development-resources`.
+
 The [initial programming design](pending_proposals/initial_implementation_design.md)
 is a draft for discussing the Python package, catalog, execution, extensions,
 audit, benchmarks, reporting, and methodological documentation, including Protocol

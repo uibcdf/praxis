@@ -25,6 +25,12 @@ title is exactly the canonical `X.Y.Z` version and matches its tag and
 project/package version. Put descriptive text in the release notes. Follow
 `MOLI_GUIDE.md#moli-engineering-baseline`.
 
+At task or release closeout, review temporary resources created by the work.
+Remove only owned disposable paths after their last needed use; retain useful
+evidence with an owner and review trigger. Protect active sessions, worktrees
+and caller outputs, and report cleanup failures. Follow
+`MOLI_GUIDE.md#temporary-development-resources`.
+
 Do not expose confidential vertical-pilot content in public issues or documentation.
 
 Report defects and needs in their owning issues; put source behavior, edge
