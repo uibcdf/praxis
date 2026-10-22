@@ -1,0 +1,336 @@
+{
+  "schema": "praxis.diagnostic_receiving/1",
+  "date_utc": "2026-10-22",
+  "owner_issue": "https://github.com/uibcdf/praxis/issues/13",
+  "coordination_issue": "https://github.com/uibcdf/moli/issues/62",
+  "base_source": "55b7d6d2f9f7495a148ebe4d6bbc7acbffd9a512",
+  "reproduction": {
+    "source": "55b7d6d2f9f7495a148ebe4d6bbc7acbffd9a512",
+    "cohort": "legacy",
+    "cases": 8,
+    "expected_failures": 8,
+    "reason": "Both actual advice sites inherit enclosing scientific argument summaries, tags and ordinary extras across four profiles. Assertions fail at event context exclusion.",
+    "receptor_complete": true,
+    "receptor_integrity_valid": true,
+    "events_sha256": "211c2d8d73a9f90e1bf2a2702db09602a4fa92e0ddbeaf9b429a4bd9bf718f56",
+    "junit_sha256": "b6728c34b8fd0bdfa1be924c7e2d1bdbab8f65de2faf17d1c114621b2242f71e"
+  },
+  "wheel": {
+    "name": "praxis-0.1.0-py3-none-any.whl",
+    "sha256": "efcf6ab0dd304418c9348f7e8539c1c538e11ec497022be46e4d5c053aea363e",
+    "purpose": "Local installed receiving of changed package sources; not publication/release qualification"
+  },
+  "files": {
+    "src/praxis/_diagnostics.py": "039471bba230a6138a2a3d937d978f75ccae5ec8c125bc97c990fc6a6cf201d1",
+    "src/praxis/_arguments.py": "cf42e2875618f133febbd105e4e6206a3bc6c8f4d015fe5aeb57c8ce760629bc",
+    "src/praxis/_smonitor.py": "4ed20482c61cfa1c13ab60bb91b1e248b8bb13f6b2952508b2d8c8c573331937",
+    "tests/test_diagnostics.py": "6bd110c8ed007086232d91294f0349f7d725fa8ed8a3ab8335b5788d9a69ff72",
+    "devguide/DIAGNOSTICS.md": "5e85fef0ab554cda33a4a76bc069d238cd489db4aaaf9d2e147ec44a10ac6231",
+    "pyproject.toml": "a2d5ee06b0f0d79c109b104d44a449080cbe77875fe9d2f5f37dcfb13a9ab2a8"
+  },
+  "cohorts": {
+    "legacy": {
+      "python": "3.14.9",
+      "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.43",
+      "providers": [
+        {
+          "name": "argdigest",
+          "version": "0.15.0",
+          "build": "py_0",
+          "fn": "argdigest-0.15.0-py_0.tar.bz2",
+          "sha256": "b0f22038a8ad1c888dca10adedaca0fa14d2383a685a97c0602b7ca05f29d6a1",
+          "url": "https://conda.anaconda.org/uibcdf/noarch/argdigest-0.15.0-py_0.tar.bz2",
+          "verified_python_files": 38,
+          "origin": "lib/python3.14/site-packages/argdigest/__init__.py"
+        },
+        {
+          "name": "smonitor",
+          "version": "0.19.0",
+          "build": "py_1",
+          "fn": "smonitor-0.19.0-py_1.tar.bz2",
+          "sha256": "4b876b4993b1e2caeed40851402a931f3b245ed7c1916d9483d81bc90274e31c",
+          "url": "https://conda.anaconda.org/uibcdf/noarch/smonitor-0.19.0-py_1.tar.bz2",
+          "verified_python_files": 40,
+          "origin": "lib/python3.14/site-packages/smonitor/__init__.py"
+        },
+        {
+          "name": "depdigest",
+          "version": "0.13.0",
+          "build": "py_0",
+          "fn": "depdigest-0.13.0-py_0.tar.bz2",
+          "sha256": "e011d725c8a831ae46cd6b8d114185d04248e32b4d6701c70f988d19cc69f67b",
+          "url": "https://conda.anaconda.org/uibcdf/noarch/depdigest-0.13.0-py_0.tar.bz2",
+          "verified_python_files": 16,
+          "origin": "lib/python3.14/site-packages/depdigest/__init__.py"
+        },
+        {
+          "name": "pyunitwizard",
+          "version": "0.28.1",
+          "build": "py_0",
+          "fn": "pyunitwizard-0.28.1-py_0.tar.bz2",
+          "sha256": "d4654faf93ed4181bf331f7d382379e78f02784f71f678ad19d0ac43d8062cc6",
+          "url": "https://conda.anaconda.org/uibcdf/noarch/pyunitwizard-0.28.1-py_0.tar.bz2",
+          "verified_python_files": 84,
+          "origin": "lib/python3.14/site-packages/pyunitwizard/__init__.py"
+        },
+        {
+          "name": "recorda",
+          "version": "0.3.0",
+          "build": "py_0",
+          "fn": "recorda-0.3.0-py_0.tar.bz2",
+          "sha256": "3f86072ed1449ea4d600312fb539caa2d807b611d18ac8faab10374f7b330e33",
+          "url": "https://conda.anaconda.org/uibcdf/noarch/recorda-0.3.0-py_0.tar.bz2",
+          "verified_python_files": 15,
+          "origin": "lib/python3.14/site-packages/recorda/__init__.py"
+        },
+        {
+          "name": "ackredit",
+          "version": "0.12.0",
+          "build": "py_0",
+          "fn": "ackredit-0.12.0-py_0.tar.bz2",
+          "sha256": "160b452c2b9de3b44bc6c6e2f4bd8c47e44b1d2779b620f63048231708a1d4aa",
+          "url": "https://conda.anaconda.org/uibcdf/noarch/ackredit-0.12.0-py_0.tar.bz2",
+          "verified_python_files": 69,
+          "origin": "lib/python3.14/site-packages/ackredit/__init__.py"
+        }
+      ],
+      "praxis_origin": "lib/python3.14/site-packages/praxis/__init__.py",
+      "complete_suite": {
+        "passed": 199,
+        "skipped": 1,
+        "failed": 0,
+        "selected_diagnostic_cases": 43,
+        "selected_diagnostic_skips": 0,
+        "excluded": [
+          {
+            "case": "tests.test_real_provider.test_real_molsysmt_workflow_keeps_units_conventions_and_failures",
+            "reason": "could not import 'molsysmt': No module named 'molsysmt'"
+          }
+        ]
+      },
+      "pytest_receptor": {
+        "version": "1.2.0",
+        "complete": true,
+        "integrity_valid": true,
+        "final": {
+          "artifact_policy": {
+            "dropped_records": 0,
+            "max_bytes": 52428800,
+            "truncated": false
+          },
+          "complete": true,
+          "counts": {
+            "collected": 200,
+            "deselected": 0,
+            "errors": 0,
+            "executed": 200,
+            "failed": 0,
+            "not_executed": 0,
+            "passed": 199,
+            "reruns": 0,
+            "skipped": 1,
+            "subtests": {},
+            "warnings": 0,
+            "xfailed": 0,
+            "xpassed": 0
+          },
+          "duration": 115.61589411701425,
+          "exitstatus": 0,
+          "extensions": {
+            "dropped": 0,
+            "incomplete": false,
+            "recorded": 0
+          },
+          "integrity": {
+            "algorithm": "sha256",
+            "digest": "2b61143635e96fd6f10e58857680fd283b2bac69f499f80cb30f41ad5459cf2b",
+            "records": 601
+          },
+          "invalid_selections": [],
+          "note": "",
+          "outcome": "PASS",
+          "root_causes": 0,
+          "run_id": "362c67af85b347aeb8c38996ae24cc93",
+          "schema": "pytest-receptor.events@1",
+          "stop_reason": "",
+          "type": "session_finish"
+        }
+      },
+      "pip_check": "No broken requirements found.",
+      "evidence_sha256": {
+        "legacy-tests.jsonl": "e53a5208f83ded8be3023ecba71aa51de27207c1f8c7d955c2d210fc6713a3e5",
+        "legacy-tests.xml": "b0757185e6fcd9a0ee211a87eda6a81745303f1f06a182a02bdba057ece6d252"
+      }
+    },
+    "latest": {
+      "python": "3.14.9",
+      "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.43",
+      "providers": [
+        {
+          "name": "argdigest",
+          "version": "0.16.0",
+          "build": "py_0",
+          "fn": "argdigest-0.16.0-py_0.tar.bz2",
+          "sha256": "e82d82680d79ae3d5df9917b1662d2855ed8485128943b72ddec87a5769a467d",
+          "url": "https://conda.anaconda.org/uibcdf/noarch/argdigest-0.16.0-py_0.tar.bz2",
+          "verified_python_files": 39,
+          "origin": "lib/python3.14/site-packages/argdigest/__init__.py"
+        },
+        {
+          "name": "smonitor",
+          "version": "0.21.0",
+          "build": "py_2",
+          "fn": "smonitor-0.21.0-py_2.tar.bz2",
+          "sha256": "62b6cbae37f7fa06374af87923792f00253020955d000294b1a7d37eb9d04e56",
+          "url": "https://conda.anaconda.org/uibcdf/noarch/smonitor-0.21.0-py_2.tar.bz2",
+          "verified_python_files": 40,
+          "origin": "lib/python3.14/site-packages/smonitor/__init__.py"
+        },
+        {
+          "name": "depdigest",
+          "version": "0.15.1",
+          "build": "py_0",
+          "fn": "depdigest-0.15.1-py_0.tar.bz2",
+          "sha256": "2765c692de4e6aacff4197c4226ebb42ec1f0df9edb27e92f196ef1390cb1850",
+          "url": "https://conda.anaconda.org/uibcdf/noarch/depdigest-0.15.1-py_0.tar.bz2",
+          "verified_python_files": 17,
+          "origin": "lib/python3.14/site-packages/depdigest/__init__.py"
+        },
+        {
+          "name": "pyunitwizard",
+          "version": "0.28.1",
+          "build": "py_0",
+          "fn": "pyunitwizard-0.28.1-py_0.tar.bz2",
+          "sha256": "d4654faf93ed4181bf331f7d382379e78f02784f71f678ad19d0ac43d8062cc6",
+          "url": "https://conda.anaconda.org/uibcdf/noarch/pyunitwizard-0.28.1-py_0.tar.bz2",
+          "verified_python_files": 84,
+          "origin": "lib/python3.14/site-packages/pyunitwizard/__init__.py"
+        },
+        {
+          "name": "ackredit",
+          "version": "0.12.0",
+          "build": "py_0",
+          "fn": "ackredit-0.12.0-py_0.tar.bz2",
+          "sha256": "160b452c2b9de3b44bc6c6e2f4bd8c47e44b1d2779b620f63048231708a1d4aa",
+          "url": "https://conda.anaconda.org/uibcdf/noarch/ackredit-0.12.0-py_0.tar.bz2",
+          "verified_python_files": 69,
+          "origin": "lib/python3.14/site-packages/ackredit/__init__.py"
+        }
+      ],
+      "praxis_origin": "lib/python3.14/site-packages/praxis/__init__.py",
+      "complete_suite": {
+        "passed": 196,
+        "skipped": 4,
+        "failed": 0,
+        "selected_diagnostic_cases": 43,
+        "selected_diagnostic_skips": 0,
+        "excluded": [
+          {
+            "case": "tests.test_real_provider.test_real_molsysmt_workflow_keeps_units_conventions_and_failures",
+            "reason": "could not import 'molsysmt': No module named 'molsysmt'"
+          },
+          {
+            "case": "tests.test_support_integrations.test_recorda_and_ackredit_borrow_sessions_and_keep_reused_credits",
+            "reason": "could not import 'recorda': No module named 'recorda'"
+          },
+          {
+            "case": "tests.test_support_integrations.test_recorda_policy_exclusion_is_not_complete_recording",
+            "reason": "could not import 'recorda': No module named 'recorda'"
+          },
+          {
+            "case": "tests.test_support_integrations.test_recorda_failure_prevents_provider_call",
+            "reason": "could not import 'recorda': No module named 'recorda'"
+          }
+        ]
+      },
+      "pytest_receptor": {
+        "version": "1.2.0",
+        "complete": true,
+        "integrity_valid": true,
+        "final": {
+          "artifact_policy": {
+            "dropped_records": 0,
+            "max_bytes": 52428800,
+            "truncated": false
+          },
+          "complete": true,
+          "counts": {
+            "collected": 200,
+            "deselected": 0,
+            "errors": 0,
+            "executed": 200,
+            "failed": 0,
+            "not_executed": 0,
+            "passed": 196,
+            "reruns": 0,
+            "skipped": 4,
+            "subtests": {},
+            "warnings": 0,
+            "xfailed": 0,
+            "xpassed": 0
+          },
+          "duration": 114.3154952939949,
+          "exitstatus": 0,
+          "extensions": {
+            "dropped": 0,
+            "incomplete": false,
+            "recorded": 0
+          },
+          "integrity": {
+            "algorithm": "sha256",
+            "digest": "250f410d02a7dee6c200ae0955446017102200f1b01aeed85b24829187575ad6",
+            "records": 601
+          },
+          "invalid_selections": [],
+          "note": "",
+          "outcome": "PASS",
+          "root_causes": 0,
+          "run_id": "783f4d2e442f447ea87e525649cc722a",
+          "schema": "pytest-receptor.events@1",
+          "stop_reason": "",
+          "type": "session_finish"
+        }
+      },
+      "pip_check": "No broken requirements found.",
+      "evidence_sha256": {
+        "latest-tests.jsonl": "c39ea7f25c6e5ce22c8f9f582e60223a62cf5ae158691cefa4dae795aa331f93",
+        "latest-tests.xml": "d1ccf4cb1e65c3cade5cba45b895a25f0b6a72a04ccf8e1de140ef40e6564c62"
+      }
+    }
+  },
+  "conda_closures": {
+    "file": "diagnostics_13_20261022_conda.json.gz",
+    "sha256": "b438112d1bf9449f53aa5a42a12ec23869196f721496ed5c91b7987495b36cb2",
+    "records": {
+      "legacy": 58,
+      "latest": 57
+    }
+  },
+  "developer_tools": {
+    "pytest_receptor": {
+      "version": "1.2.0",
+      "wheel_sha256": "4e339abd53d85406c3acc0c643b895154b133c0a6f9d5f7a2350703f514a9971",
+      "installation": "Published wheel isolated on PYTHONPATH; autoload disabled; receptor=llm"
+    }
+  },
+  "checks": [
+    "ruff check .",
+    "ruff format --check .",
+    "python -B devtools/check_dependencies.py",
+    "python -B devtools/moli_governance.py",
+    "git diff --check"
+  ],
+  "dispositions": {
+    "scoped_advice": "adopted: restrictive scope before registration and event construction; imports also inside presentation-failure guard",
+    "request_baseline": "retained: explicit safe first-use baseline and application/project precedence",
+    "registration_only": "deferred: no current host requiring absence of implicit handler/setup; reconsider both request and advice boundaries together for a concrete embedding use case",
+    "audience_maps_identity_export": "not applicable: fixed shared safe prose/hints; no diagnostic export API"
+  },
+  "limits": [
+    "Linux x86_64 / Python 3.14.9 local receiving; exact-head remote installed matrix checked separately in issue.",
+    "Real MolSysMT absent in both environments. Latest public Recorda is incompatible with latest mandatory providers and omitted there; old-cohort optional recording runs.",
+    "No Nextia runtime, new shared diagnostic contract, floor change, provider publication or public Praxis release.",
+    "Caller editable environment and primary source clone unchanged.",
+    "Task-owned environments, checkouts, tools and caches retired after durable evidence and exact-head CI."
+  ]
+}

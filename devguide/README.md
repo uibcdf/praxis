@@ -1,5 +1,8 @@
 # Praxis development guide
 
+[Diagnostic ownership and bounded advice](DIAGNOSTICS.md) records the first-use
+baseline, application policy precedence and scoped methodological presentation.
+
 [Architecture](ARCHITECTURE.md) and [design boundaries](BOUNDARIES.md) describe
 Praxis's conceptual responsibilities within MOLI.
 
