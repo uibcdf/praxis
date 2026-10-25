@@ -218,6 +218,15 @@ def _verify_child_pins(prepared, extensions):
             raise NotReadyError("Pinned nested child checker is unavailable or changed")
 
 
+def _require_runtime_support(requirement, finding):
+    if finding.mandatory and finding.outcome != "passed":
+        if requirement.review_required and finding.outcome != "failed":
+            raise WaitingForReview("Declared human review remains unresolved")
+        if finding.outcome == "failed":
+            raise ContractError("Runtime contract guarantee failed")
+        raise NotReadyError("Runtime contract guarantee lacks sufficient evidence")
+
+
 class RecipeContext:
     """Declared boundaries, bounded repetition, runtime gates and pinned child calls."""
 
@@ -381,12 +390,7 @@ class RecipeContext:
             steps=tuple(step.identifier for step in self.protocol.steps),
         )[0]
         self.runtime_findings.append(finding)
-        if finding.mandatory and finding.outcome != "passed":
-            if requirement.review_required and finding.outcome != "failed":
-                raise WaitingForReview("Declared human review remains unresolved")
-            if finding.outcome == "failed":
-                raise ContractError("Runtime contract guarantee failed")
-            raise NotReadyError("Runtime contract guarantee lacks sufficient evidence")
+        _require_runtime_support(requirement, finding)
         return finding
 
     def invoke(
@@ -458,7 +462,7 @@ class RecipeContext:
             raise ContractError("Recipe did not complete all declared step boundaries")
         capability = Capability.from_dict(self.prepared.definitions[0])
         expected = {
-            item.identifier
+            item.identifier: item
             for item in (
                 *capability.requirements,
                 *self.protocol.requirements,
@@ -466,8 +470,11 @@ class RecipeContext:
             )
             if item.phase == "runtime"
         }
-        if expected != {item.requirement for item in self.runtime_findings}:
+        if set(expected) != {item.requirement for item in self.runtime_findings}:
             raise ContractError("Recipe omitted declared runtime guarantee checks")
+        # Catching a check's exception inside the recipe cannot erase its finding.
+        for finding in self.runtime_findings:
+            _require_runtime_support(expected[finding.requirement], finding)
 
 
 def execute(

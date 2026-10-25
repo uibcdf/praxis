@@ -366,7 +366,11 @@ def audit_definition(reference, *, catalog):
                 "provenance_verifier", "Provenance guarantees need invocation-specific evidence"
             )
     for requirement in requirements:
-        if requirement.mandatory and requirement.checker_ref is None:
+        if (
+            requirement.mandatory
+            and not requirement.review_required
+            and requirement.checker_ref is None
+        ):
             unresolved(
                 "checker_unresolved",
                 "Mandatory guarantee has no checker: " + requirement.identifier,

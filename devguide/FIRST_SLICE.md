@@ -123,6 +123,9 @@ Recipes declare `with runtime.step(id)` in order. A step may repeat a positive b
 number of times. Conditional steps require a pinned condition checker via
 `runtime.branch(id, outputs=...)`; pass enters its boundary, fail records a skip,
 unknown abstains. Calls cannot silently omit steps or swallow a failed boundary.
+Before completion, runtime findings are gated again: a recipe that catches a check
+exception still cannot support a failed or unresolved mandatory guarantee. Human
+gates retain their waiting/rejection behavior; advisory findings remain advisory.
 `context.cancelled` is inspected at declared boundaries; it cannot preempt an opaque
 solver or undo completed effects. Broad adaptive/unbounded workflows and parallel/DAG
 scheduling are not implemented.
@@ -143,8 +146,11 @@ Run or ExecutionPlan. The shared invocation/transaction seam remains
 and saved evidence without invoking scientific recipes/evaluators/checkers. They return
 consistent/violated/unverified with structured issues. Consistency is not scientific
 validation. Execution audits include ordered/repeated/conditional boundaries, structural
-values, consumed identities, scoped checks and child relationships. Benchmark audits
-check the full schedule, method links and measurement types/units/configuration.
+values, consumed identities, scoped checks and child relationships. Definition audit
+distinguishes a declared human-review requirement from a missing executable checker;
+a valid human-review declaration does not establish that review has occurred.
+Benchmark audits check the full schedule, method links and measurement
+types/units/configuration.
 
 `describe_method`, `execution_document`, `benchmark_document`, `comparison_document`
 and `audit_document` derive source-linked documents; `render` writes Markdown or escaped
