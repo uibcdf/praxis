@@ -14,7 +14,7 @@ on:
       version:
         description: Qualified X.Y.Z package version and public tag when publishing
         required: true
-        default: '0.1.0'
+        default: '0.1.1'
         type: string
       publish:
         description: Upload once after tag and credential checks; false only checks readiness
@@ -57,7 +57,7 @@ jobs:
           ARTIFACT_NAME: ${{ steps.gates.outputs.artifact_name }}
         run: gh run download "$PRAXIS_CANDIDATE_RUN_ID" --repo uibcdf/praxis --name "$ARTIFACT_NAME" --dir dist/candidate
       - name: Inspect archives independently
-        run: python -B devtools/check_artifacts.py dist/candidate/praxis-0.1.0-py3-none-any.whl dist/candidate/praxis-0.1.0.tar.gz --conda dist/candidate/praxis-0.1.0-py_0.tar.bz2
+        run: python -B devtools/check_artifacts.py dist/candidate/praxis-0.1.1-py3-none-any.whl dist/candidate/praxis-0.1.1.tar.gz --conda dist/candidate/praxis-0.1.1-py_0.tar.bz2
       - name: Refuse any occupied all-label coordinate
         id: preflight
         env:

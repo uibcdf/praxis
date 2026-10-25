@@ -44,7 +44,7 @@ jobs:
           BUILT_PATHS: ${{ steps.conda.outputs.built_paths }}
         run: |
           python -c "import os, pathlib, shlex, shutil; paths=shlex.split(os.environ['BUILT_PATHS']); assert len(paths)==1; shutil.copy(paths[0], pathlib.Path('dist') / pathlib.Path(paths[0]).name)"
-          python -B devtools/check_artifacts.py dist/praxis-0.1.0-py3-none-any.whl dist/praxis-0.1.0.tar.gz --conda dist/praxis-0.1.0-py_0.tar.bz2 --receipt dist/artifacts.json
+          python -B devtools/check_artifacts.py dist/praxis-0.1.1-py3-none-any.whl dist/praxis-0.1.1.tar.gz --conda dist/praxis-0.1.1-py_0.tar.bz2 --receipt dist/artifacts.json
       - uses: actions/upload-artifact@v4
         with:
           name: praxis-candidate-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}

@@ -4,10 +4,11 @@ channels:
   - conda-forge
 dependencies:
   - python>=3.11,<3.15
-  - argdigest=0.16.0=py_0
+  - argdigest=0.17.0=py_0
   - depdigest=0.15.1=py_0
-  - smonitor=0.21.0=py_2
-  - pyunitwizard=0.28.1
+  - smonitor=0.22.0=py_0
+  - pyunitwizard=0.29.0=py_0
+  - recorda=0.3.3=py_0
   - ackredit=0.12.0
   - pip
   - setuptools>=77

@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.1.1 — contract corrections and support-provider receiving
+
+- Recheck mandatory runtime findings before terminal completion, preserving failed,
+  unresolved and waiting-human outcomes even when a recipe catches their exceptions (#15).
+- Distinguish declared human review from a missing executable checker in definition
+  audits, without inventing review evidence or scientific admission (#16).
+- Admit ArgDigest 0.17, SMonitor 0.22 and PyUnitWizard 0.29; qualify public Recorda
+  0.3.3 recording and Ackredit attribution with the new cohort while preserving
+  legacy installed-test coverage (#14).
+- Reconcile the completed MOLI registry synchronization under #9.
+
+The [source qualification record](devguide/releases/0.1.1.md) distinguishes acceptance
+of this patch from package publication and scientific validation. API/storage remain
+experimental. The frozen 0.1.0 tag and its original files are unchanged.
+
 ## 0.1.0 — experimental local milestone
 
 First experimental local Praxis implementation:

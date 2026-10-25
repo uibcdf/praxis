@@ -29,7 +29,7 @@ def test_runtime_metadata_and_all_declared_routes_agree(routes):
 
 def test_missing_recipe_runtime_dependency_is_rejected(routes):
     path = routes / "devtools/conda-build/meta.yaml"
-    path.write_text(path.read_text().replace("    - pyunitwizard >=0.28.1,<0.29\n", ""))
+    path.write_text(path.read_text().replace("    - pyunitwizard >=0.28.1,<0.30\n", ""))
     with pytest.raises(ValueError, match="pyunitwizard"):
         preflight.audit(routes)
 

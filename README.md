@@ -60,6 +60,12 @@ passing gates, qualified artifacts and known limitations. Exact-source acceptanc
 [Praxis #9](https://github.com/uibcdf/praxis/issues/9); configured CI alone is not
 passing evidence. No public Conda package or archival claim is made.
 
+The **0.1.1** patch corrects runtime-contract and human-review audit defects and
+receives newer public support providers. Its [qualification record](devguide/releases/0.1.1.md)
+defines the scope; exact source-tag acceptance and retained candidate evidence
+belong to [Praxis #9](https://github.com/uibcdf/praxis/issues/9). Package publication
+remains separate.
+
 The [first implementation guide](devguide/FIRST_SLICE.md) explains the boundaries
 and the optional Recorda and Ackredit integrations. Bundled hydrogen-refinement
 definitions retain their pending adapters and checks; no executable hydrogen engine

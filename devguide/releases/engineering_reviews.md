@@ -7,8 +7,8 @@ pending shared MOLI execution contract. MOLI registered `python-package` through
 below are **adopted** for the frozen source
 `e253fe76db81b9cb6eaa4db4dc0b78bb60188d39`, supported by
 [complete acceptance](https://github.com/uibcdf/praxis/issues/9#issuecomment-6067816955)
-and the [release record](0.1.0.md). Their registry mirror remains pending owner
-review in [MOLI PR #66](https://github.com/uibcdf/moli/pull/66).
+and the [release record](0.1.0.md). Their registry mirror was merged on 2026-10-21
+through [MOLI PR #66](https://github.com/uibcdf/moli/pull/66).
 
 ## Python ecosystem applicability
 
@@ -110,9 +110,8 @@ DOI claim is included in 0.1.0; revisit archival metadata when that route is ado
 The [release record](0.1.0.md) and #9 retain exact source/tag identities, original
 artifact digests, resolved closures, authoritative run/JUnit conclusions, Codecov
 acceptance and read-only publication readiness. The public tag remains unchanged.
-PR #66 proposes the adopted component review states and supported OS/architecture
-for MOLI owner review. As of 2026-10-08 its governance passes; its global guide
-audit is blocked by Nextia/MOLI Agent canonical-copy drift tracked in
-[MOLI #60](https://github.com/uibcdf/moli/issues/60). Registry synchronization is
-not complete until that PR merges. Later documentation-only commits do not
+PR #66 synchronized the adopted component review states and supported OS/architecture
+after MOLI owner review, merging on 2026-10-21. The 2026-10-08 guide-audit blocker
+tracked under [MOLI #60](https://github.com/uibcdf/moli/issues/60) is a historical
+checkpoint rather than a remaining PR-merge condition. Later documentation-only commits do not
 change the qualified source, rebuild its files or supply release-gate evidence.

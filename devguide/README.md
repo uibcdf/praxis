@@ -12,7 +12,9 @@ benchmarks/reanalysis and replay. The [0.1.0 release record](releases/0.1.0.md)
 connects exact-source installed acceptance to completed issue criteria and remaining
 provider/shared/publication decisions. [Next steps](../NEXT_STEPS.md) is the current
 work queue. The [implementation checkpoint](IMPLEMENTATION_CHECKPOINT.md) preserves
-the earlier, pre-release development state.
+the earlier, pre-release development state. The [0.1.1 patch record](releases/0.1.1.md)
+describes contract corrections and current support-provider receiving; #9 carries
+its exact-source acceptance before tagging.
 
 For any future public GitHub Release, check that the visible title is exactly
 the `X.Y.Z` version, matching the tag and project/package version. Keep

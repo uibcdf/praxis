@@ -1,5 +1,9 @@
 # Consolidation after Praxis 0.1.0
 
+The [0.1.1 patch](devguide/releases/0.1.1.md) addresses local runtime/audit defects
+and newer support providers. Its exact-source acceptance is tracked in #9;
+the frozen first milestone below keeps its original identity and evidence.
+
 The experimental source milestone [0.1.0](devguide/releases/0.1.0.md) is frozen
 at `e253fe76db81b9cb6eaa4db4dc0b78bb60188d39`. All eight installed Conda lanes
 passed on Linux x86_64/macOS arm64 and Python 3.11–3.14; complete installed Linux
@@ -30,12 +34,10 @@ Remaining work has concrete owners and completion conditions:
   Run/ExecutionPlan and semantic-persistence/Recorda partial-commit and recovery
   ownership, then check the local interfaces against that shared contract.
   Existing method attempts remain provisional local records.
-- [Praxis #9](https://github.com/uibcdf/praxis/issues/9): obtain owner-reviewed
-  registry synchronization in [MOLI PR #66](https://github.com/uibcdf/moli/pull/66).
-  As of 2026-10-08, its governance passes and its global guide audit is blocked
-  by Nextia/MOLI Agent canonical-copy drift under
-  [MOLI #60](https://github.com/uibcdf/moli/issues/60). Component review decisions
-  are adopted; their registry mirror remains pending merge.
+- [Praxis #9](https://github.com/uibcdf/praxis/issues/9): registry synchronization
+  through [MOLI PR #66](https://github.com/uibcdf/moli/pull/66) completed on
+  2026-10-21. The former merge blocker is resolved. Separate public-distribution
+  work below still requires its own authorization and evidence.
 - If public Conda distribution is requested, use only the qualified original file,
   verify coordinate availability and write authentication, independently observe
   public poststate and qualify clean public-channel installations before advertising

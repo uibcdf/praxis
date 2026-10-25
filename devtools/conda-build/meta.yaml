@@ -1,7 +1,7 @@
 # Candidate recipe. Qualification builds do not publish this package.
 package:
   name: praxis
-  version: 0.1.0
+  version: 0.1.1
 source:
   path: ../..
 build:
@@ -17,17 +17,17 @@ requirements:
     - wheel
   run:
     - python >=3.11,<3.15
-    - argdigest >=0.15,<0.17
+    - argdigest >=0.15,<0.18
     - depdigest >=0.13,<0.16
-    - smonitor >=0.19,<0.22
-    - pyunitwizard >=0.28.1,<0.29
+    - smonitor >=0.19,<0.23
+    - pyunitwizard >=0.28.1,<0.30
 test:
   imports:
     - praxis
     - praxis.benchmarks
     - praxis.replay
   commands:
-    - python -c "import praxis, tempfile; assert praxis.__version__ == '0.1.0'; c = praxis.Catalog(tempfile.mkdtemp()); c.load_bundled(version='2')"
+    - python -c "import praxis, tempfile; assert praxis.__version__ == '0.1.1'; c = praxis.Catalog(tempfile.mkdtemp()); c.load_bundled(version='2')"
 about:
   home: https://github.com/uibcdf/praxis
   license: MIT

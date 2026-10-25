@@ -51,22 +51,22 @@ jobs:
           environment-file: devtools/conda-envs/test_env.yaml
           create-args: python=${{ matrix.python }} --strict-channel-priority
       - name: Install the exact shared Conda artifact
-        run: micromamba install --yes --no-deps candidate/praxis-0.1.0-py_0.tar.bz2
+        run: micromamba install --yes --no-deps candidate/praxis-0.1.1-py_0.tar.bz2
       - run: python -m pip check
       - name: Check architecture and installed resources/dependencies
         env:
           EXPECTED_OS: ${{ matrix.os }}
         run: |
           python -c "import os, platform; assert os.environ['EXPECTED_OS'] != 'macos-latest' or platform.machine() == 'arm64'"
-          python -B devtools/check_installed.py candidate/artifacts.json candidate/praxis-0.1.0-py_0.tar.bz2 installed-conda.json
+          python -B devtools/check_installed.py candidate/artifacts.json candidate/praxis-0.1.1-py_0.tar.bz2 installed-conda.json
           micromamba list --json > conda-closure.json
       - name: Test installed package with published optional providers
         run: python -B -m pytest --receptor=ci -o pythonpath=examples --junitxml=installed-conda-tests.xml --cov=praxis --cov-report=xml:coverage.xml
       - name: Qualify the retained wheel on routine Linux Python
         if: matrix.os == 'ubuntu-latest' && matrix.python == '3.14'
         run: |
-          python -m pip install --no-deps --force-reinstall candidate/praxis-0.1.0-py3-none-any.whl
-          python -B devtools/check_installed.py candidate/artifacts.json candidate/praxis-0.1.0-py3-none-any.whl installed-wheel.json
+          python -m pip install --no-deps --force-reinstall candidate/praxis-0.1.1-py3-none-any.whl
+          python -B devtools/check_installed.py candidate/artifacts.json candidate/praxis-0.1.1-py3-none-any.whl installed-wheel.json
           python -B -m pytest --receptor=ci -o pythonpath=examples --junitxml=installed-wheel-tests.xml
       - name: Retain observed candidate and test evidence
         if: always()
@@ -161,7 +161,7 @@ jobs:
           from importlib.metadata import version
           from pathlib import Path
           assert os.environ['EXPECTED_OS'] != 'macos-latest' or platform.machine() == 'arm64'
-          expected = {'argdigest': ('0.16.0', 'py_0', 'e82d82680d79ae3d5df9917b1662d2855ed8485128943b72ddec87a5769a467d'), 'smonitor': ('0.21.0', 'py_2', '62b6cbae37f7fa06374af87923792f00253020955d000294b1a7d37eb9d04e56'), 'depdigest': ('0.15.1', 'py_0', '2765c692de4e6aacff4197c4226ebb42ec1f0df9edb27e92f196ef1390cb1850')}
+          expected = {'argdigest': ('0.17.0', 'py_0', '9c35fa297b5a85dc65ac49ccd108f60f08dbeac4f745d6c369a767c0a0b3a3e1'), 'smonitor': ('0.22.0', 'py_0', 'bbf5890bed4ea657044b904f07d3cef137d474f0862ef5f35b063db9c8f0c949'), 'depdigest': ('0.15.1', 'py_0', '2765c692de4e6aacff4197c4226ebb42ec1f0df9edb27e92f196ef1390cb1850'), 'pyunitwizard': ('0.29.0', 'py_0', '9169cd302dbda415ebc441ef6f5077dcde834d435626fcf80c179a9013657f34'), 'recorda': ('0.3.3', 'py_0', 'fcee216130bca444e92e195fc38f8ef24fb501439cd123638bc11fa8e5df76ea')}
           records = {}
           prefix = Path(sys.prefix).resolve()
           for name, (release, build, digest) in expected.items():
@@ -178,9 +178,8 @@ jobs:
           PYCODE
           python -m pip check
       - name: Test installed consumer with latest mandatory providers
-        # Optional Recorda is omitted here: its public 0.3.0 still excludes this cohort.
-        # Existing installed lanes retain old-cohort recording tests; joint editable
-        # receiving is separately recorded under Praxis #10 / MolSysSuite #82.
+        # Public Recorda 0.3.3 admits this cohort; its integration tests must execute.
+        # The installed candidate lanes retain the separately qualified legacy cohort.
         run: python -B -m pytest --receptor=ci -o pythonpath=examples --junitxml=latest-support-tests.xml
       - name: Retain latest-provider receiving scope and results
         if: always()
