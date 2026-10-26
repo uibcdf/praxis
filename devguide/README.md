@@ -1,5 +1,9 @@
 # Praxis development guide
 
+Development is paused as of 2026-10-26. Start with the maintained
+[pause checkpoint](CHECKPOINT.md) for the accepted source, five open issues,
+owners, resumption conditions and retained artifacts.
+
 [Diagnostic ownership and bounded advice](DIAGNOSTICS.md) records the first-use
 baseline, application policy precedence and scoped methodological presentation.
 
@@ -8,18 +12,18 @@ Praxis's conceptual responsibilities within MOLI.
 
 The [first local implementation](FIRST_SLICE.md) documents the experimental Python
 API, storage, contracts, composition, real MolSysMT exercise, Recorda/Ackredit adapters,
-benchmarks/reanalysis and replay. The [0.1.0 release record](releases/0.1.0.md)
-connects exact-source installed acceptance to completed issue criteria and remaining
-provider/shared/publication decisions. [Next steps](../NEXT_STEPS.md) is the current
-work queue. The [implementation checkpoint](IMPLEMENTATION_CHECKPOINT.md) preserves
-the earlier, pre-release development state. The [0.1.1 patch record](releases/0.1.1.md)
-describes contract corrections and current support-provider receiving; #9 carries
-its exact-source acceptance before tagging.
+benchmarks/reanalysis and replay. The [accepted 0.1.1 record](releases/0.1.1.md)
+identifies the public source tag, exact-source installed qualification and original
+artifact hashes. The [evidence index](evidence/README.md) links tracked receipts and
+full native records. [Next steps](../NEXT_STEPS.md) is the current work queue.
+The [0.1.0 release record](releases/0.1.0.md) and
+[earlier implementation checkpoint](IMPLEMENTATION_CHECKPOINT.md) preserve their
+historical scope; they do not replace the current pause checkpoint.
 
 For any future public GitHub Release, check that the visible title is exactly
 the `X.Y.Z` version, matching the tag and project/package version. Keep
-descriptions in the release notes; the frozen 0.1.0 source record above is not
-a claim that a GitHub Release was published.
+descriptions in the release notes. Public source tags 0.1.0/0.1.1 do not claim
+that a GitHub Release, public Conda package or archive was published.
 
 At task and release closeout, review temporary test environments, build trees
 and downloaded copies. Remove owned disposable resources after their last
@@ -41,7 +45,8 @@ made explicit.
 The [four-Capability stress exercise](stress_tests/design_stress_test.md) contains
 four filled Capability proposals, eight Protocol proposals and scenario reviews
 covering deterministic, stochastic, human and composed methods. Its conclusions
-concern the proposed design; implementation and scientific validation remain pending.
+concern the proposed design. Those eight scientific methods have not been executed
+or scientifically validated; later local runner qualification has its separate scope.
 
 [Filled hydrogen submissions and technical review](proposals/hydrogen_refinement/capability.md)
 complement the hypothetical stress cases; their provider adapters and scientific

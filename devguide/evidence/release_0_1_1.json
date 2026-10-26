@@ -1,0 +1,241 @@
+{
+  "record_type": "Engineering qualification evidence; not a runtime API or scientific assessment",
+  "owner": "uibcdf/praxis#9",
+  "version": "0.1.1",
+  "state": "accepted public source tag",
+  "source_commit": "2a5149b4f7e9b19ed829c5744d24d176bc8491f7",
+  "tag_object": "dc25f035b4cc90358a58cfe453f5540e558e0321",
+  "source_tag_url": "https://github.com/uibcdf/praxis/tree/0.1.1",
+  "acceptance_url": "https://github.com/uibcdf/praxis/issues/9#issuecomment-6392012559",
+  "closeout_url": "https://github.com/uibcdf/praxis/issues/9#issuecomment-6392030439",
+  "qualification": {
+    "run_id": 40148434570,
+    "attempt": 1,
+    "url": "https://github.com/uibcdf/praxis/actions/runs/40148434570",
+    "passed_jobs": 19,
+    "verified_junit_reports": 17,
+    "reports": [
+      {
+        "artifact": "installed-macos-latest-py3.11-40148434570-1",
+        "report": "installed-conda-tests.xml",
+        "passed": 213,
+        "skipped": 1
+      },
+      {
+        "artifact": "installed-macos-latest-py3.12-40148434570-1",
+        "report": "installed-conda-tests.xml",
+        "passed": 213,
+        "skipped": 1
+      },
+      {
+        "artifact": "installed-macos-latest-py3.13-40148434570-1",
+        "report": "installed-conda-tests.xml",
+        "passed": 213,
+        "skipped": 1
+      },
+      {
+        "artifact": "installed-macos-latest-py3.14-40148434570-1",
+        "report": "installed-conda-tests.xml",
+        "passed": 213,
+        "skipped": 1
+      },
+      {
+        "artifact": "installed-ubuntu-latest-py3.11-40148434570-1",
+        "report": "installed-conda-tests.xml",
+        "passed": 213,
+        "skipped": 1
+      },
+      {
+        "artifact": "installed-ubuntu-latest-py3.12-40148434570-1",
+        "report": "installed-conda-tests.xml",
+        "passed": 213,
+        "skipped": 1
+      },
+      {
+        "artifact": "installed-ubuntu-latest-py3.13-40148434570-1",
+        "report": "installed-conda-tests.xml",
+        "passed": 213,
+        "skipped": 1
+      },
+      {
+        "artifact": "installed-ubuntu-latest-py3.14-40148434570-1",
+        "report": "installed-conda-tests.xml",
+        "passed": 213,
+        "skipped": 1
+      },
+      {
+        "artifact": "installed-ubuntu-latest-py3.14-40148434570-1",
+        "report": "installed-wheel-tests.xml",
+        "passed": 213,
+        "skipped": 1
+      },
+      {
+        "artifact": "latest-support-macos-latest-py3.11-40148434570-1",
+        "report": "latest-support-tests.xml",
+        "passed": 213,
+        "skipped": 1
+      },
+      {
+        "artifact": "latest-support-macos-latest-py3.12-40148434570-1",
+        "report": "latest-support-tests.xml",
+        "passed": 213,
+        "skipped": 1
+      },
+      {
+        "artifact": "latest-support-macos-latest-py3.13-40148434570-1",
+        "report": "latest-support-tests.xml",
+        "passed": 213,
+        "skipped": 1
+      },
+      {
+        "artifact": "latest-support-macos-latest-py3.14-40148434570-1",
+        "report": "latest-support-tests.xml",
+        "passed": 213,
+        "skipped": 1
+      },
+      {
+        "artifact": "latest-support-ubuntu-latest-py3.11-40148434570-1",
+        "report": "latest-support-tests.xml",
+        "passed": 213,
+        "skipped": 1
+      },
+      {
+        "artifact": "latest-support-ubuntu-latest-py3.12-40148434570-1",
+        "report": "latest-support-tests.xml",
+        "passed": 213,
+        "skipped": 1
+      },
+      {
+        "artifact": "latest-support-ubuntu-latest-py3.13-40148434570-1",
+        "report": "latest-support-tests.xml",
+        "passed": 213,
+        "skipped": 1
+      },
+      {
+        "artifact": "latest-support-ubuntu-latest-py3.14-40148434570-1",
+        "report": "latest-support-tests.xml",
+        "passed": 213,
+        "skipped": 1
+      }
+    ]
+  },
+  "governance": {
+    "run_id": 40148419320,
+    "url": "https://github.com/uibcdf/praxis/actions/runs/40148419320",
+    "passed_jobs": 1
+  },
+  "readiness": {
+    "run_id": 40151094479,
+    "url": "https://github.com/uibcdf/praxis/actions/runs/40151094479",
+    "publish": false,
+    "original_file_preflight": {
+      "artifact_sha256": "34bc69b4f11c10e45c28e842ba56d439ed4d9d23814dd824259e1205431f777b",
+      "command": "preflight",
+      "coordinate": "uibcdf/praxis/0.1.1/noarch/praxis-0.1.1-py_0.tar.bz2",
+      "publication_credential_available": true,
+      "source_commit": "2a5149b4f7e9b19ed829c5744d24d176bc8491f7",
+      "version": "0.1.1"
+    }
+  },
+  "original_artifacts": {
+    "conda_sha256": "34bc69b4f11c10e45c28e842ba56d439ed4d9d23814dd824259e1205431f777b",
+    "wheel_sha256": "76db9c56ba7a9d68f2f551322f53524f30baa5269746e7d7471ef69f790e1af6",
+    "sdist_sha256": "c83e23b5e523db8b3ffa4dd238f8dc6ac4275bfd8c9c3177b67938fd7ecd99ab"
+  },
+  "runtime_resources_verified": 44,
+  "public_support_providers": {
+    "argdigest": {
+      "name": "argdigest",
+      "version": "0.17.0",
+      "build": "py_0",
+      "sha256": "9c35fa297b5a85dc65ac49ccd108f60f08dbeac4f745d6c369a767c0a0b3a3e1",
+      "url": "https://conda.anaconda.org/uibcdf/noarch/argdigest-0.17.0-py_0.tar.bz2"
+    },
+    "smonitor": {
+      "name": "smonitor",
+      "version": "0.22.0",
+      "build": "py_0",
+      "sha256": "bbf5890bed4ea657044b904f07d3cef137d474f0862ef5f35b063db9c8f0c949",
+      "url": "https://conda.anaconda.org/uibcdf/noarch/smonitor-0.22.0-py_0.tar.bz2"
+    },
+    "depdigest": {
+      "name": "depdigest",
+      "version": "0.15.1",
+      "build": "py_0",
+      "sha256": "2765c692de4e6aacff4197c4226ebb42ec1f0df9edb27e92f196ef1390cb1850",
+      "url": "https://conda.anaconda.org/uibcdf/noarch/depdigest-0.15.1-py_0.tar.bz2"
+    },
+    "pyunitwizard": {
+      "name": "pyunitwizard",
+      "version": "0.29.0",
+      "build": "py_0",
+      "sha256": "9169cd302dbda415ebc441ef6f5077dcde834d435626fcf80c179a9013657f34",
+      "url": "https://conda.anaconda.org/uibcdf/noarch/pyunitwizard-0.29.0-py_0.tar.bz2"
+    },
+    "recorda": {
+      "name": "recorda",
+      "version": "0.3.3",
+      "build": "py_0",
+      "sha256": "fcee216130bca444e92e195fc38f8ef24fb501439cd123638bc11fa8e5df76ea",
+      "url": "https://conda.anaconda.org/uibcdf/noarch/recorda-0.3.3-py_0.tar.bz2"
+    }
+  },
+  "attribution_provider": "Ackredit 0.12.0; integration executed",
+  "coverage": {
+    "source_commit": "2a5149b4f7e9b19ed829c5744d24d176bc8491f7",
+    "state": "complete",
+    "lines": 2455,
+    "hits": 2118,
+    "percentage": 86.27,
+    "url": "https://app.codecov.io/gh/uibcdf/praxis/commit/2a5149b4f7e9b19ed829c5744d24d176bc8491f7"
+  },
+  "scope": {
+    "platforms": [
+      "Linux x86_64",
+      "macOS arm64"
+    ],
+    "python": [
+      "3.11",
+      "3.12",
+      "3.13",
+      "3.14"
+    ],
+    "installed_conda_cells": 8,
+    "latest_public_cells": 8,
+    "installed_wheel": "Linux Python 3.14",
+    "per_junit_report": {
+      "passed": 213,
+      "skipped": 1,
+      "only_skip": "Optional real-MolSysMT provider absent"
+    },
+    "recorda_ackredit_integrations": "Executed without skips",
+    "scientific_admission": false
+  },
+  "publication": {
+    "source_tag_published": true,
+    "github_release_performed": false,
+    "conda_upload_performed": false,
+    "zenodo_archive_performed": false
+  },
+  "durable_records": {
+    "path": "release_0_1_1_receipts.json.gz",
+    "sha256": "00d632b8c9840125b41d0026b1484bc7ef211b94a4a3bf539462df653f3cc80b",
+    "members": 73,
+    "encoding": "gzip JSON; file content UTF-8 or explicit base64; each decoded member carries SHA-256"
+  },
+  "retention": {
+    "owner": "uibcdf/praxis#9",
+    "local_originals": "dist/0.1.1-qualified/",
+    "remote_artifact_id": 12581785988,
+    "remote_artifact_name": "praxis-candidate-2a5149b4f7e9b19ed829c5744d24d176bc8491f7-40148434570-1",
+    "remote_expires_at": "2026-11-24T00:55:44Z",
+    "expiry_checked_on": "2026-10-26",
+    "review_trigger": "Before CI artifact expiry, on resumption/publication/replacement, or explicit owner retirement; preserve original package bytes while needed",
+    "package_archives_in_git": false
+  },
+  "limits": [
+    "No public package installation or scientific validation is claimed",
+    "Local real-MolSysMT receiving retained its older-provider scope; it does not qualify the new public cohort scientifically",
+    "Later tag/scheduled/doc-only runs do not replace the original qualified producer files"
+  ]
+}

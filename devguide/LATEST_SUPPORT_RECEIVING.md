@@ -1,6 +1,7 @@
 # Latest public support-provider receiving
 
-Current owner: [Praxis #14](https://github.com/uibcdf/praxis/issues/14).
+Accepted receiving decision: [Praxis #14](https://github.com/uibcdf/praxis/issues/14)
+(closed). Qualification/artifact retention: [Praxis #9](https://github.com/uibcdf/praxis/issues/9).
 Workspace coordination: [MolSysSuite #135](https://github.com/uibcdf/molsyssuite/issues/135).
 The completed earlier cohort stays under Praxis #10 / MolSysSuite #82 / MOLI #40.
 
@@ -24,8 +25,14 @@ Public Recorda 0.3.3 permits this cohort, so latest-support now runs recording
 as well as Ackredit 0.12.0 attribution tests. CI verifies all five public Conda
 identities and runtime import origins. Legacy build/installed-test environments
 retain their older pins and published Recorda 0.3.0 to protect floor coverage.
-The current cohort is a receiving decision for these versions, not automatic
-admission of later providers. It does not select a release or publish Praxis.
+The [0.1.1 source acceptance](releases/0.1.1.md) passed all eight latest-provider
+cells and all eight installed Conda cells on Linux x86_64/macOS arm64 and Python
+3.11–3.14, plus the original Linux 3.14 wheel. All 17 JUnit reports retain 213
+passes and only the optional absent-MolSysMT skip. Recorda/Ackredit tests execute.
+The [tracked receipt](evidence/release_0_1_1.json) and compressed records preserve
+identities and full scope. The receiving handoff was delivered to MolSysSuite #135.
+This decision admits these versions without automatically admitting later providers,
+refreshing the shared environment, publishing a package or supplying scientific validation.
 
 ## Historical receiving cohort — 2026-10-20
 
@@ -35,17 +42,17 @@ previous runtime floors and admit these qualified minors through bounded upper
 limits. Current receiving must execute existing contracts against public provider
 files and verify their identities; widened metadata alone is not evidence.
 
-At that checkpoint, the public Recorda 0.3.0 archive retained its original provider ceilings. Source
-compatibility does not rewrite that archive or claim a new public release. A
-future separately authorized Recorda release is required before a public-only
-joint install can select the new cohort. Praxis's old-cohort recording tests and
-the latest mandatory-provider tests therefore have distinct scopes.
+At that checkpoint, the public Recorda 0.3.0 archive retained its original provider
+ceilings. Source compatibility did not rewrite that archive or claim a new public
+release. A later Recorda release was required before a public-only joint install
+could select that new cohort. The subsequent public Recorda 0.3.3/current cohort
+above resolves the receiving limitation; the original 0.3.0 files remain unchanged.
 
 No provider scientific implementation, component version, existing release plan,
 tag or public file is changed. Joint editable-source receiving does not claim
 an installed consumer Conda release or broader scientific qualification.
 
-The qualified current cohort uses original public files:
+The qualified historical cohort used these original public files:
 
 | Provider | File | SHA-256 |
 | --- | --- | --- |
@@ -65,12 +72,15 @@ records; provider imports came from that disposable environment.
 Provider selection is a dated, reviewed cohort, not a claim about unreleased
 future minors. Preserve receiving evidence when reviewing a later public provider.
 
-At that checkpoint, the original installed lanes retained their legacy provider cohort and published
-Recorda 0.3.0, protecting optional recording. A separate `latest_support` lane
-installs current Praxis with the exact latest public mandatory providers and
-Ackredit; it omits the incompatible public Recorda 0.3.0. Omitted optional
-Recorda tests must remain explicit in its receipt and do not replace joint
-editable recording evidence. Internal pushes run the latest Linux/Python 3.14
+At that checkpoint, the original installed lanes retained the legacy provider cohort
+and public Recorda 0.3.0. The separate latest lane tested mandatory providers and
+Ackredit while omitting incompatible public Recorda 0.3.0. Its omitted recording
+tests remain explicit in the historical receipt, without replacing joint editable
+recording evidence. The current lane includes compatible public Recorda 0.3.3.
+
+## Current matrix policy
+
+Internal pushes run the latest Linux/Python 3.14
 cell; PR, scheduled and manual workflows run all eight Linux/macOS arm64 ×
 Python 3.11–3.14 cells. The release preflight requires all eight latest cells
 as well as the existing installed artifact/coverage gates. Run an exact-head

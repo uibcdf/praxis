@@ -1,15 +1,12 @@
-# Consolidation after Praxis 0.1.0
+# Remaining work after Praxis 0.1.1
 
-The [0.1.1 patch](devguide/releases/0.1.1.md) addresses local runtime/audit defects
-and newer support providers. Its exact-source acceptance is tracked in #9;
-the frozen first milestone below keeps its original identity and evidence.
-
-The experimental source milestone [0.1.0](devguide/releases/0.1.0.md) is frozen
-at `e253fe76db81b9cb6eaa4db4dc0b78bb60188d39`. All eight installed Conda lanes
-passed on Linux x86_64/macOS arm64 and Python 3.11–3.14; complete installed Linux
-coverage was accepted at 85.22%. The original artifacts and acceptance receipt
-are retained under [Praxis #9](https://github.com/uibcdf/praxis/issues/9).
-No public Conda package has been uploaded.
+Development is paused as of 2026-10-26; the [pause checkpoint](devguide/CHECKPOINT.md)
+provides the resumption handoff. Public source tag [0.1.1](devguide/releases/0.1.1.md)
+is accepted at `2a5149b4f7e9b19ed829c5744d24d176bc8491f7`, with 19 passing native
+jobs and accepted 86.27% coverage. Issues #14, #15 and #16 are closed. The
+[tracked receipt](devguide/evidence/release_0_1_1.json) preserves source/artifact
+identity and scope; [0.1.0](devguide/releases/0.1.0.md) keeps its original history.
+No public Conda package has been uploaded by this work.
 
 The [implemented API](devguide/FIRST_SLICE.md) includes the local increments from
 #5–#8, curation, resource profiles, catalog transfer, trace/replay preflight and
@@ -34,15 +31,18 @@ Remaining work has concrete owners and completion conditions:
   Run/ExecutionPlan and semantic-persistence/Recorda partial-commit and recovery
   ownership, then check the local interfaces against that shared contract.
   Existing method attempts remain provisional local records.
-- [Praxis #9](https://github.com/uibcdf/praxis/issues/9): registry synchronization
-  through [MOLI PR #66](https://github.com/uibcdf/moli/pull/66) completed on
-  2026-10-21. The former merge blocker is resolved. Separate public-distribution
-  work below still requires its own authorization and evidence.
-- If public Conda distribution is requested, use only the qualified original file,
+- [Praxis #9](https://github.com/uibcdf/praxis/issues/9): if public Conda distribution
+  is selected, use only the qualified original file,
   verify coordinate availability and write authentication, independently observe
   public poststate and qualify clean public-channel installations before advertising
   installation. The successful read-only hosted check observed an available CI
   credential; it did not exercise write authorization or publish anything.
+
+These are five open issues across three fronts. Registry synchronization through
+[MOLI PR #66](https://github.com/uibcdf/moli/pull/66) completed on 2026-10-21 and is
+not a remaining blocker. Preserve the original package bytes in ignored
+`dist/0.1.1-qualified/`, owner #9; review retention before their remote Actions
+artifact expires on `2026-11-24T00:55:44Z`, or at resumption/publication/replacement.
 
 The next functional milestone should be an end-to-end scientific Capability:
 registration, selection, provider execution, retained checks, audit, comparison
